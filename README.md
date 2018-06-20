@@ -8,14 +8,17 @@ A web application that finds local events and matches you with people also inter
 
 ## Built With
 
-* Technologies uses
-* Technologies uses
-* Technologies uses
+* (Technologies used)
+* (Technologies used)
+* (Technologies used)
 
 
 ## Authors
 
-(github profiles)
+(github profile)
+(github profile)
+(github profile)
+(github profile)
 
 
 ## Acknowledgments
