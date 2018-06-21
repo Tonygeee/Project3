@@ -4,7 +4,7 @@ A web application that finds local events and matches you with people also inter
 
 ## Live Deployment
 
-(Heroku link goes here)
+https://ticketmatcher.herokuapp.com/
 
 ## Built With
 
