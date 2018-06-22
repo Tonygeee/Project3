@@ -29,7 +29,8 @@ const Login = () => {
 								</form>
 								<hr/>
 								<center><h4>OR</h4></center>
-								<input className="btn btn-lg btn-facebook btn-block" type="submit" value="Login via facebook"/>
+								<div id="fb-root"></div>
+								<div className="fb-login-button" data-width="375" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
 							</div>
 						</div>
 					</div>
