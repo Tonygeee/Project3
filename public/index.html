@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 
     <!--
       manifest.json provides metadata used when your web app is added to the
@@ -23,18 +27,37 @@
     -->
     <title>React App</title>
   </head>
-  <body>
-      <script>
-      // Code above creates the login button.
-      //Code below is needed on any page that uses facebook login, just adding here until that page is created.
+  <body><div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=1686776771436287&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  <script>
 
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=1686776771436287&autoLogAppEvents=1';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script> <noscript>
+$(function() {
+
+$('#login-form-link').click(function(e) {
+	$("#login-form").delay(100).fadeIn(100);
+	 $("#register-form").fadeOut(100);
+	$('#register-form-link').removeClass('active');
+	$(this).addClass('active');
+	e.preventDefault();
+});
+$('#register-form-link').click(function(e) {
+	$("#register-form").delay(100).fadeIn(100);
+	 $("#login-form").fadeOut(100);
+	$('#login-form-link').removeClass('active');
+	$(this).addClass('active');
+	e.preventDefault();
+});
+
+});
+
+</script>
+      </script> <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
