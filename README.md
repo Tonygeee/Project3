@@ -8,21 +8,14 @@ https://ticketmatcher.herokuapp.com/
 
 ## Built With
 
-* (Technologies used)
-* (Technologies used)
-* (Technologies used)
+* React.JS
+* MongoDB
+* Passport
 
 
 ## Authors
 
-(github profile)
-(github profile)
-(github profile)
-(github profile)
-
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+Tonygeee
+Vaneo
+ShannonEdgar
+Liannaarica09
