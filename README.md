@@ -15,7 +15,7 @@ https://ticketmatcher.herokuapp.com/
 
 ## Authors
 
-Tonygeee
-Vaneo
-ShannonEdgar
+Tonygeee,
+Vaneo,
+ShannonEdgar,
 Liannaarica09
