@@ -1,1 +1,1 @@
-export { default } './ConnectionCard';
+export { default } from './UserCard';
