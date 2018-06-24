@@ -11,6 +11,13 @@ class App extends Component {
       <div>
         <Header />
         <ProfileForm />
+        <Sidebar>
+          <UserCard />
+          <Menu />
+        </Sidebar>
+        <Main>
+          <ConnectionCard />
+        </Main>
       </div>
     );
   }
