@@ -17,7 +17,7 @@ function UserCard() {
                 </div>
                 <div className="panel-body">
                     Panel content
-  </div>
+            </div>
             </div>
 
         </div>
