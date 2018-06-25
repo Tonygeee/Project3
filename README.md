@@ -11,6 +11,7 @@ https://ticketmatcher.herokuapp.com/
 * React.JS
 * MongoDB
 * Passport
+* Pusher/ChatKit
 
 
 ## Authors
