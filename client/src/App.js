@@ -13,13 +13,18 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div>
-        <Header />
-        <Sidebar>
+      <div className="grid-container">
+        <Header className="item1" />
+        <Sidebar className="item2">
           <UserCard />
           <Menu />
         </Sidebar>
-        <Main>
+        <Main className="item3">
+          <ConnectionCard />
+          <ConnectionCard />
+          <ConnectionCard />
+          <ConnectionCard />
+          <ConnectionCard />
           <ConnectionCard />
         </Main>
       </div>

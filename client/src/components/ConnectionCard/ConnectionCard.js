@@ -4,19 +4,12 @@ import './ConnectionCard.css'
 const ConnectionCard = () => {
     return (
         <div>
-            <div class="panel panel-default">
-                <div class="panel-heading">Panel heading without title</div>
-                <div class="panel-body">
-                    Panel content
+            <div className="panel panel-default cCard">
+                <div className="panel-heading">
+                    <h3 className="panel-title">Potential Connection Name</h3>
                 </div>
-            </div>
-
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Panel title</h3>
-                </div>
-                <div class="panel-body">
-                    Panel content
+                <div className="panel-body">
+                    Bio and rating
                 </div>
             </div>
         </div>

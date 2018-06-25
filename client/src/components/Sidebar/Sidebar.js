@@ -3,7 +3,7 @@ import './Sidebar.css';
 
 function Sidebar(props) {
     return (
-        <div>
+        <div className="item2">
             {props.children}
         </div>
     )
