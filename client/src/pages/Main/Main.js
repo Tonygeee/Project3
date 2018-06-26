@@ -15,11 +15,10 @@ const instanceLocator = "v1:us1:9444a659-fe48-4c3c-b739-9445db574fcd"
 const testToken = "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/9444a659-fe48-4c3c-b739-9445db574fcd/token"
 const username = "test123"
 const roomId = 10348859
-const isLoggedIn = true
 
 class MainPage extends Component {
 
-    constructor() {
+  constructor() {
     super()
     this.state = {
       messages: []
@@ -61,31 +60,31 @@ class MainPage extends Component {
     })
   }
 
-  render () {
+  render() {
     return (
-        <div className="grid-container">
-            <Header className="item1" />
-            <Sidebar className="item2">
-                <UserCard />
-                <Menu />
-                <ChatContainer>
-                    <ChatTitle />
-                    <ChatScreen
-                        roomId={this.state.roomId}
-                        messages={this.state.messages} />
-                    <MessageForm
-                        sendMessage={this.sendMessage} />
-                </ChatContainer>
-            </Sidebar>
-            <Main className="item3">
-                <ConnectionCard />
-                <ConnectionCard />
-                <ConnectionCard />
-                <ConnectionCard />
-                <ConnectionCard />
-                <ConnectionCard />
-            </Main>
-        </div>
+      <div className="grid-container">
+        <Header className="item1" />
+        <Sidebar className="item2">
+          <UserCard />
+          <Menu />
+          <ChatContainer>
+            <ChatTitle />
+            <ChatScreen
+              roomId={this.state.roomId}
+              messages={this.state.messages} />
+            <MessageForm
+              sendMessage={this.sendMessage} />
+          </ChatContainer>
+        </Sidebar>
+        <Main className="item3">
+          <ConnectionCard />
+          <ConnectionCard />
+          <ConnectionCard />
+          <ConnectionCard />
+          <ConnectionCard />
+          <ConnectionCard />
+        </Main>
+      </div>
     )
   }
 }
