@@ -27,7 +27,8 @@ const ConnectionCard = () => {
                     <h3 className="panel-title">Potential Connection Name</h3>
                 </div>
                 <div className="panel-body">
-                    Bio and rating
+                    <p>Bio and rating</p>
+                    <button type="button" className="btn btn-info">Connect</button>
                 </div>
             </div>
         </div>
