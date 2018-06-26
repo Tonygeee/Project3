@@ -1,4 +1,4 @@
-# Ticketmatcher
+# Buddy Up
 
 A web application that finds local events and matches you with people also interested in the same events creating a social hub for music enthusiasts. 
 
