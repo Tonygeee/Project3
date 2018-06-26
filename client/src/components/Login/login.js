@@ -23,10 +23,10 @@ const Login = () => {
 								<div className="col-lg-12">
 									<form id="login-form" action="/main" method="post" role="form" styles={{ display: 'block' }}>
 										<div className="form-group">
-											<input type="text" name="username" id="username" tabIndex="1" className="form-control" placeholder="Username" value="" />
+											<input type="text" name="username" id="username1" tabIndex="1" className="form-control" placeholder="Username" value="" />
 										</div>
 										<div className="form-group">
-											<input type="password" name="password" id="password" tabIndex="2" className="form-control" placeholder="Password" />
+											<input type="password" name="password" id="password1" tabIndex="2" className="form-control" placeholder="Password" />
 										</div>
 										<div className="form-group text-center">
 											<input type="checkbox" tabIndex="3" className="" name="remember" id="remember" />
@@ -55,13 +55,13 @@ const Login = () => {
 									</form>
 									<form id="register-form" action="/profile" method="post" role="form" styles={{ display: 'none' }}>
 										<div className="form-group">
-											<input type="text" name="username" id="username" tabIndex="1" className="form-control" placeholder="Username" value="" />
+											<input type="text" name="username" id="username2" tabIndex="1" className="form-control" placeholder="Username" value="" />
 										</div>
 										<div className="form-group">
 											<input type="email" name="email" id="email" tabIndex="1" className="form-control" placeholder="Email Address" value="" />
 										</div>
 										<div className="form-group">
-											<input type="password" name="password" id="password" tabIndex="2" className="form-control" placeholder="Password" />
+											<input type="password" name="password" id="password2" tabIndex="2" className="form-control" placeholder="Password" />
 										</div>
 										<div className="form-group">
 											<input type="password" name="confirm-password" id="confirm-password" tabIndex="2" className="form-control" placeholder="Confirm Password" />
