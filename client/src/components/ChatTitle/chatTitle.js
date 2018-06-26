@@ -7,4 +7,4 @@ const ChatTitle = () => {
     )
 }
 
-export default ChatTitle;
+export default ChatTitle; 

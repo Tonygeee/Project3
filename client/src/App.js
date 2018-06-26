@@ -7,11 +7,10 @@ import UserCard from './components/UserCard';
 import Menu from './components/Menu';
 import Main from './components/Main';
 import ConnectionCard from './components/ConnectionCard';
-// import ChatContainer from './components/ChatContainer';
-// import ChatScreen from './components/ChatScreen';
-// import ChatTitle from './components/ChatTitle';
-// import MessageFrom from './components/MessageFrom';
-// import logo from './logo.svg';
+import ChatContainer from './components/ChatContainer';
+import ChatScreen from './components/ChatScreen';
+import ChatTitle from './components/ChatTitle';
+import MessageForm from './components/MessageForm';
 import './App.css';
 
 class App extends Component {
@@ -31,11 +30,11 @@ class App extends Component {
           <ConnectionCard />
           <ConnectionCard />
         </Main>
-        {/* <ChatContainer>
+        <ChatContainer>
           <ChatTitle />
           <ChatScreen />
-          <MessageFrom />
-        </ChatContainer> */}
+          <MessageForm />
+        </ChatContainer>
       </div>
     );
   }
