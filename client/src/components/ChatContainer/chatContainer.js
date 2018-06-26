@@ -1,9 +1,10 @@
 import React from 'react';
 import './chatContainer.css';
 
-const ChatContainer = (props) => {
+const ChatContainer = props => {
+
     return (
-        <div>{props.children}</div>
+        <div className="chatContainer"> {props.children} </div>
     )
 }
 
