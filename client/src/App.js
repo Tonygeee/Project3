@@ -5,17 +5,19 @@ import LoginPage from '../src/pages/Login';
 import NoMatch from '../src/pages/Login';
 import './App.css';
 
+const isLoggedIn = true
+
 class App extends Component {
 
   render() {
     return (
-        <Router>
-          <Switch>
+      <Router>
+        <Switch>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route component={NoMatch} />
-          </Switch>
-        </Router>
+        </Switch>
+      </Router>
     );
   }
 }
