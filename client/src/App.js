@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import Login from './components/Login';
-=======
 import ReactDOM from 'react-dom';
 // import Login from './components/Login';
->>>>>>> master
 import ProfileForm from './components/ProfileForm';
 import Chatkit from '@pusher/chatkit'
 import Header from './components/Header';
@@ -92,15 +88,6 @@ class App extends Component {
           <ConnectionCard />
           <ConnectionCard />
         </Main>
-<<<<<<< HEAD
-        {/* <ChatContainer>
-          <ChatTitle />
-          <ChatScreen />
-          <MessageFrom />
-        </ChatContainer> */}
-        <Login />
-=======
->>>>>>> master
       </div>
     );
   }
