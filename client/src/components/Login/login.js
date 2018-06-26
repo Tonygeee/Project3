@@ -13,7 +13,7 @@ const Login = () => {
 									<a href="#" className="active" id="login-form-link">Login</a>
 								</div>
 								<div className="col-xs-6">
-									<a href="#" id="register-form-link">Register</a>
+									<a href="/profile" id="register-form-link">Register</a>
 								</div>
 							</div>
 							<hr />
@@ -21,7 +21,7 @@ const Login = () => {
 						<div className="panel-body">
 							<div className="row">
 								<div className="col-lg-12">
-									<form id="login-form" action="#" method="post" role="form" styles={{ display: 'block' }}>
+									<form id="login-form" action="/main" method="post" role="form" styles={{ display: 'block' }}>
 										<div className="form-group">
 											<input type="text" name="username" id="username" tabIndex="1" className="form-control" placeholder="Username" value="" />
 										</div>
@@ -53,7 +53,7 @@ const Login = () => {
 											</div>
 										</div>
 									</form>
-									<form id="register-form" action="#" method="post" role="form" styles={{ display: 'none' }}>
+									<form id="register-form" action="/profile" method="post" role="form" styles={{ display: 'none' }}>
 										<div className="form-group">
 											<input type="text" name="username" id="username" tabIndex="1" className="form-control" placeholder="Username" value="" />
 										</div>
