@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Login from './components/Login';
+import Login from './components/Login';
 import ProfileForm from './components/ProfileForm';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
@@ -36,6 +36,7 @@ class App extends Component {
           <ChatScreen />
           <MessageFrom />
         </ChatContainer> */}
+        <Login />
       </div>
     );
   }
