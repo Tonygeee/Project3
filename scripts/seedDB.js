@@ -27,7 +27,8 @@ const profileSeed = [
     firstName: "Sam",
     lastName: "Hunt",
     bio: "I am a rock star"
-  },
+  }
+]
 
   // db.Profile
   // .remove({})
@@ -40,4 +41,3 @@ const profileSeed = [
   //   console.error(err);
   //   process.exit(1);
   // });
-]
