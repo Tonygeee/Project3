@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist"/*,
+  process.env.MONGODB_URI || "mongodb://localhost/profileInfo"/*,
   {
     useMongoClient: true
   }*/
@@ -18,12 +18,12 @@ const profileSeed = [
     lastName: "Stephens",
     bio: "I like pop and rock bands"
   },
-   {
+  {
     firstName: "Mike",
     lastName: "Loggins",
     bio: "I like pop and rock bands"
   },
-   {
+  {
     firstName: "Sam",
     lastName: "Hunt",
     bio: "I am a rock star"
@@ -40,3 +40,4 @@ const profileSeed = [
   //   console.error(err);
   //   process.exit(1);
   // });
+]
