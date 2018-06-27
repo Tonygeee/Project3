@@ -22,8 +22,8 @@ const profileSeed = [
   {
     userName: "Sam",
     email: "Sam@mail.com",
-    password: "1234"
-    confirmPassword: "1234"
+    password: "1234",
+    confirmPassword: "1234",
     bio: "I like pop, classical and rock bands."
   },
   {
