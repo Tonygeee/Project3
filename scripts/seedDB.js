@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const db = require("../models");
 mongoose.Promise = global.Promise;
 
-// This file empties the Books collection and inserts the books below
 
 
 mongoose.connect(
@@ -14,14 +13,18 @@ mongoose.connect(
 
 const profileSeed = [
   {
-    firstName: "Sara",
-    lastName: "Stephens",
-    bio: "I like pop and rock bands"
+    userName: "Sara",
+    email: "Stephens@mail.com",
+    password: "1234",
+    confirmPassword: "1234",
+    bio: "I like pop and rock bands."
   },
   {
-    firstName: "Mike",
-    lastName: "Loggins",
-    bio: "I like pop and rock bands"
+    userName: "Sam",
+    email: "Sam@mail.com",
+    password: "1234"
+    confirmPassword: "1234"
+    bio: "I like pop, classical and rock bands."
   },
   {
     firstName: "Sam",
