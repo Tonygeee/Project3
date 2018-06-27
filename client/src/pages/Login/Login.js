@@ -1,6 +1,7 @@
 import React from "react";
 import Header from '../../components/Header';
 import Login from '../../components/Login';
+import LeoLogin from '../../components/Login/LeoLogin';
 import API from '../../utils/API';
 
 class LoginPage extends React.Component {
@@ -30,10 +31,15 @@ class LoginPage extends React.Component {
 
     render() {
         return (
-            <div className="grid-container" >
-                <Header />
-                <Login />
-            </div>
+            <React.Fragment>
+                <div className="grid-container" >
+                    <Header />
+                    <Login />
+
+
+                </div>
+                <div><LeoLogin /></div>
+            </React.Fragment>
         )
     }
 }

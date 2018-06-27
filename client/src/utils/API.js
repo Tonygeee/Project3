@@ -14,7 +14,7 @@ export default {
     return axios.delete("/api/profiles/" + id);
   },
   // Saves a profile to the database
-  saveProfile: function (bookData) {
-    return axios.post("/api/profiles", bookData);
+  saveProfile: function (profileData) {
+    return axios.post("/api/profiles", profileData);
   }
 };
