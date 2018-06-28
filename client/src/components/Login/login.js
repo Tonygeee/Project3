@@ -38,7 +38,7 @@ class Login extends Component {
 							<div className="panel-heading">
 								<div className="row">
 									<div className="col-xs-6">
-										<button> style={this.getLinkStyles('login')} onClick={(e) => this.toggleStateOnSelection(e, 'login')} id="login-form-link">Login</button>
+										<button style={this.getLinkStyles('login')} onClick={(e) => this.toggleStateOnSelection(e, 'login')} id="login-form-link">Login</button>
 									</div>
 									<div className="col-xs-6">
 										<a href="/profile" style={this.getLinkStyles('register')} onClick={(e) => this.toggleStateOnSelection(e, 'register')} id="register-form-link">Register</a>
