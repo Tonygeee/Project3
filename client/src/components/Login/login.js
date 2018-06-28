@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './login.css';
 
-class Login extends Component{
+class Login extends Component {
 	state = {
 		currentSelection: 'login'
 	}
@@ -15,7 +15,7 @@ class Login extends Component{
 
 	getDisplayStyle = (formType) => {
 		if (this.state.currentSelection === formType) {
-			return { display: ''};
+			return { display: '' };
 		} else {
 			return { display: 'none' };
 		}
@@ -23,14 +23,14 @@ class Login extends Component{
 
 	getLinkStyles = (linkType) => {
 		if (this.state.currentSelection === linkType) {
-			return {color: "#029f5b", fontSize: "18px" };
+			return { color: "#029f5b", fontSize: "18px" };
 		} else {
-			return {color: "#666", fontSize: "15px"};
+			return { color: "#666", fontSize: "15px" };
 		}
 	}
 
 	render() {
-		return(
+		return (
 			<div className="container">
 				<div className="row">
 					<div className="col-md-6 col-md-offset-3">
@@ -38,10 +38,10 @@ class Login extends Component{
 							<div className="panel-heading">
 								<div className="row">
 									<div className="col-xs-6">
-										<a href="#" style={this.getLinkStyles('login')} onClick={(e)=> this.toggleStateOnSelection(e, 'login')} id="login-form-link">Login</a>
+										<button> style={this.getLinkStyles('login')} onClick={(e) => this.toggleStateOnSelection(e, 'login')} id="login-form-link">Login</button>
 									</div>
 									<div className="col-xs-6">
-										<a href="/profile" style={this.getLinkStyles('register')} onClick={(e)=> this.toggleStateOnSelection(e, 'register')} id="register-form-link">Register</a>
+										<a href="/profile" style={this.getLinkStyles('register')} onClick={(e) => this.toggleStateOnSelection(e, 'register')} id="register-form-link">Register</a>
 									</div>
 								</div>
 								<hr />
@@ -49,7 +49,7 @@ class Login extends Component{
 							<div className="panel-body">
 								<div className="row">
 									<div className="col-lg-12">
-										<form id="login-form" action="/main" method="post" role="form" style={this.getDisplayStyle('login')}>
+										<form id="login-form" action="/main" method="post" style={this.getDisplayStyle('login')}>
 											<div className="form-group">
 												<input type="text" name="username" id="username1" tabIndex="1" className="form-control" placeholder="Username" value="" />
 											</div>
@@ -75,13 +75,13 @@ class Login extends Component{
 												<div className="row">
 													<div className="col-lg-12">
 														<div className="text-center">
-															<a href="#" tabIndex="5" className="forgot-password">Forgot Password?</a>
+															<button> tabIndex="5" className="forgot-password">Forgot Password?</button>
 														</div>
 													</div>
 												</div>
 											</div>
 										</form>
-										<form id="register-form" action="/profile" method="post" role="form" style={this.getDisplayStyle('register')}>
+										<form id="register-form" action="/profile" method="post" style={this.getDisplayStyle('register')}>
 											<div className="form-group">
 												<input type="text" name="username" id="username2" tabIndex="1" className="form-control" placeholder="Username" value="" />
 											</div>
@@ -111,7 +111,7 @@ class Login extends Component{
 			</div>
 		)
 	}
-	
+
 }
 
 export default Login;

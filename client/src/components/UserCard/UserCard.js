@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './UserCard.css';
 
 function UserCard() {
@@ -6,10 +6,10 @@ function UserCard() {
         <div className="panel panel-default">
             <div className="panel-heading">Name and Picture</div>
             <div className="panel-body">
-                <a href="#" >Edit Profile</a>
-                <a href="#" >Connections</a>
-                <a href="#" >Events</a>
-                <a href="#" >Past Connections</a>
+                <button>Edit Profile</button>
+                <button>Connections</button>
+                <button>Events</button>
+                <button>Past Connections</button>
             </div>
         </div>
     )
