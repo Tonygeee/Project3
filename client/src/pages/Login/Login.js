@@ -32,11 +32,10 @@ class LoginPage extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="grid-container" >
-                    <Header />
+                <div >
                     <Login />
                 </div>
-                <div><LeoLogin /></div>
+                {/* <div><LeoLogin /></div> */}
             </React.Fragment>
 git        )
     }
