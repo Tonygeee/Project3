@@ -16,5 +16,8 @@ export default {
   // Saves a profile to the database
   saveProfile: function (profileData) {
     return axios.post("/api/profiles", profileData);
+  },
+  getEvents: function (searchParams) {
+    return axios.get("api/search", searchParams);
   }
 };
