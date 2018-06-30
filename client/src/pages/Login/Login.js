@@ -37,7 +37,7 @@ class LoginPage extends React.Component {
                 </div>
                 {/* <div><LeoLogin /></div> */}
             </React.Fragment>
-git        )
+        )
     }
 }
 
