@@ -6,6 +6,10 @@ import NoMatch from '../src/pages/Login';
 import './App.css';
 
 const isLoggedIn = false;
+<<<<<<< HEAD
+=======
+
+>>>>>>> f4f594223b73fb9f2f567328dafa0e873750e1f2
 
 class App extends Component {
 

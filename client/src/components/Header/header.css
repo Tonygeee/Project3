@@ -11,7 +11,9 @@
 .item1 {
     background-color: white;
     opacity: 50%;
-    border-bottom: solid 6px #d62a81;
+    border-bottom: 6px linear-gradient( to right #d62a81 #FFE300);
+   
+
     /* transform: translate(-50%, 50%);
     border-bottom: 6px ;
     border-image-source: linear-gradient( to right, #D62A81,#FFE300);
