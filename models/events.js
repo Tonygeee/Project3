@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // i am not sure we can name this with a "2"
-const Schema2 = mongoose.Schema2;
+const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
   eventName: String,
