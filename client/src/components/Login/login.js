@@ -28,7 +28,7 @@ export default class Login extends Component {
 		return (
 			<div>
 				<div id="colorBody">
-					<img src="/images/logoAllWhite.png" />
+					<img src="/images/logoAllWhite.png" alt="logo" />
 					<div className="container">
 						<div className="row">
 							<div className="col-md-6 col-md-offset-3">

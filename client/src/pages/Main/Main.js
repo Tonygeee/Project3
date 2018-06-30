@@ -66,7 +66,8 @@ class MainPage extends Component {
         <Header className="item1" />
         <Sidebar className="item2">
           <UserCard />
-          <Menu />
+          <Menu>
+          </Menu>
           <ChatContainer>
             <ChatTitle />
             <ChatScreen
