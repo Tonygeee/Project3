@@ -1,7 +1,7 @@
 import React from "react";
-import Header from '../../components/Header';
+// import Header from '../../components/Header';
 import Login from '../../components/Login';
-import LeoLogin from '../../components/Login/LeoLogin';
+// import LeoLogin from '../../components/Login/LeoLogin';
 import API from '../../utils/API';
 
 class LoginPage extends React.Component {
@@ -15,7 +15,7 @@ class LoginPage extends React.Component {
     handleInputChange = event => {
         // Destructure the name and value properties off of event.target
         // Update the appropriate state
-        const { name, value } = event.target;
+        const { name, value } = event.target
         this.setState({
             [name]: value
         });
