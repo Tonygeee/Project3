@@ -5,7 +5,7 @@ import LoginPage from '../src/pages/Login';
 import NoMatch from '../src/pages/Login';
 import './App.css';
 
-// const isLoggedIn = false;
+const isLoggedIn = false;
 
 class App extends Component {
 
