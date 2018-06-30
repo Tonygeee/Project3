@@ -146,7 +146,7 @@ animation: AnimationName 1s ease infinite;
 }
 }
 
-img{
+#logInImg{
 	margin: 0 auto;
 	display: block;
 	width: 200px;
