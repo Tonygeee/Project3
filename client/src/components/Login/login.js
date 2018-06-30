@@ -1,36 +1,32 @@
 import React, { Component } from 'react';
 import './login.css';
+import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
-class Login extends Component {
-	state = {
-		currentSelection: 'login'
+export default class Login extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			username: "",
+			email: "",
+			password: ""
+		};
 	}
-
-	toggleStateOnSelection = (event, selection) => {
-		event.preventDefault();
+	validateForm() {
+		return this.state.email.length > 0 && this.state.password.length > 0;
+	}
+	handleChange = event => {
 		this.setState({
-			currentSelection: selection
-		})
+			[event.target.id]: event.target.value
+		});
 	}
 
-	getDisplayStyle = (formType) => {
-		if (this.state.currentSelection === formType) {
-			return { display: '' };
-		} else {
-			return { display: 'none' };
-		}
-	}
-
-	getLinkStyles = (linkType) => {
-		if (this.state.currentSelection === linkType) {
-			return { color: "#029f5b", fontSize: "18px" };
-		} else {
-			return { color: "#666", fontSize: "15px" };
-		}
+	handleSubmit = event => {
+		event.preventDefault();
 	}
 
 	render() {
 		return (
+<<<<<<< HEAD
 			<div>
 				<div id="colorBody">
 					<img src="/images/logodark.png" />
@@ -113,10 +109,46 @@ class Login extends Component {
 						</div>
 					</div>
 				</div >
+=======
+			<div className="Login">
+				<form onSubmit={this.handleSubmit}>
+					<FormGroup controlId="username" bsSize="large">
+						<ControlLabel>Username</ControlLabel>
+						<FormControl
+							autoFocus
+							type="username"
+							value={this.state.username}
+							onChange={this.handleChange}
+						/>
+					</FormGroup>
+					<FormGroup controlId="email" bsSize="large">
+						<ControlLabel>Email</ControlLabel>
+						<FormControl
+							autoFocus
+							type="email"
+							value={this.state.email}
+							onChange={this.handleChange}
+						/>
+					</FormGroup>
+					<FormGroup controlId="password" bsSize="large">
+						<ControlLabel>Password</ControlLabel>
+						<FormControl
+							value={this.state.password}
+							onChange={this.handleChange}
+							type="password"
+						/>
+					</FormGroup>
+					<Button
+						block
+						bsSize="large"
+						disabled={!this.validateForm()}
+						type="submit"
+					>
+						Login
+          </Button>
+				</form>
+>>>>>>> e5a776de0aff8ddd8e15e4e4989d73df7c84a468
 			</div>
-		)
+		);
 	}
-
 }
-
-export default Login;
