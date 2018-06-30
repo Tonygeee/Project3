@@ -7,7 +7,6 @@ import './App.css';
 
 const isLoggedIn = false;
 
-
 class App extends Component {
 
   render() {
