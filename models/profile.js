@@ -9,6 +9,7 @@ const profileSchema = new Schema({
   facebookURL: String,
   instagramURL: String,
   bio: String,
+  image: { data: Buffer, contentType: String }
 });
 
 const Profile = mongoose.model("Profile", profileSchema);

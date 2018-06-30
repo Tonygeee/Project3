@@ -7,8 +7,8 @@ import './App.css';
 
 // const isLoggedIn = false;
 
-if (isLoggedIn === true) {
-}
+// if (isLoggedIn === true) {
+// }
 
 class App extends Component {
 
