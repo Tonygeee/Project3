@@ -26,10 +26,9 @@ export default class Login extends Component {
 
 	render() {
 		return (
-<<<<<<< HEAD
 			<div>
 				<div id="colorBody">
-					<img src="/images/logodark.png" />
+					<img src="/images/logoAllWhite.png" />
 					<div className="container">
 						<div className="row">
 							<div className="col-md-6 col-md-offset-3">
@@ -37,10 +36,10 @@ export default class Login extends Component {
 									<div className="panel-heading">
 										<div className="row">
 											<div className="col-xs-6">
-												<button style={this.getLinkStyles('login')} onClick={(e) => this.toggleStateOnSelection(e, 'login')} id="login-form-link">Login</button>
+												<button onClick={(e) => this.toggleStateOnSelection(e, 'login')} id="login-form-link">Login</button>
 											</div>
 											<div className="col-xs-6">
-												<a href="/profile" style={this.getLinkStyles('register')} onClick={(e) => this.toggleStateOnSelection(e, 'register')} id="register-form-link">Register</a>
+												<a href="/profile" onClick={(e) => this.toggleStateOnSelection(e, 'register')} id="register-form-link">Register</a>
 											</div>
 										</div>
 										<hr />
@@ -48,7 +47,43 @@ export default class Login extends Component {
 									<div className="panel-body">
 										<div className="row">
 											<div className="col-lg-12">
-												<form id="login-form" action="/main" method="post" style={this.getDisplayStyle('login')}>
+												<form onSubmit={this.handleSubmit}>
+													<FormGroup controlId="username" bsSize="large">
+														<ControlLabel>Username</ControlLabel>
+														<FormControl
+															autoFocus
+															type="username"
+															value={this.state.username}
+															onChange={this.handleChange}
+														/>
+													</FormGroup>
+													<FormGroup controlId="email" bsSize="large">
+														<ControlLabel>Email</ControlLabel>
+														<FormControl
+															autoFocus
+															type="email"
+															value={this.state.email}
+															onChange={this.handleChange}
+														/>
+													</FormGroup>
+													<FormGroup controlId="password" bsSize="large">
+														<ControlLabel>Password</ControlLabel>
+														<FormControl
+															value={this.state.password}
+															onChange={this.handleChange}
+															type="password"
+														/>
+													</FormGroup>
+													<Button
+														block
+														bsSize="large"
+														disabled={!this.validateForm()}
+														type="submit"
+													>
+														Login
+          </Button>
+												</form>
+												{/* <form id="login-form" action="/main" method="post" style={this.getDisplayStyle('login')}>
 													<div className="form-group">
 														<input type="text" name="username" id="username1" tabIndex="1" className="form-control" placeholder="Username" value="" />
 													</div>
@@ -79,8 +114,8 @@ export default class Login extends Component {
 															</div>
 														</div>
 													</div>
-												</form>
-												<form id="register-form" action="/profile" method="post" style={this.getDisplayStyle('register')}>
+												</form> */}
+												<form id="register-form" action="/profile" method="post">
 													<div className="form-group">
 														<input type="text" name="username" id="username2" tabIndex="1" className="form-control" placeholder="Username" value="" />
 													</div>
@@ -109,46 +144,8 @@ export default class Login extends Component {
 						</div>
 					</div>
 				</div >
-=======
-			<div className="Login">
-				<form onSubmit={this.handleSubmit}>
-					<FormGroup controlId="username" bsSize="large">
-						<ControlLabel>Username</ControlLabel>
-						<FormControl
-							autoFocus
-							type="username"
-							value={this.state.username}
-							onChange={this.handleChange}
-						/>
-					</FormGroup>
-					<FormGroup controlId="email" bsSize="large">
-						<ControlLabel>Email</ControlLabel>
-						<FormControl
-							autoFocus
-							type="email"
-							value={this.state.email}
-							onChange={this.handleChange}
-						/>
-					</FormGroup>
-					<FormGroup controlId="password" bsSize="large">
-						<ControlLabel>Password</ControlLabel>
-						<FormControl
-							value={this.state.password}
-							onChange={this.handleChange}
-							type="password"
-						/>
-					</FormGroup>
-					<Button
-						block
-						bsSize="large"
-						disabled={!this.validateForm()}
-						type="submit"
-					>
-						Login
-          </Button>
-				</form>
->>>>>>> e5a776de0aff8ddd8e15e4e4989d73df7c84a468
 			</div>
+
 		);
 	}
 }
