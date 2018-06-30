@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const profileController = require("../../controllers/profileController");
 
-// Matches with "/api/profile"
+// Matches with "/api/profiles/main"
 router.route("/main")
   .get(profileController.findAll)
   .post(profileController.create);
