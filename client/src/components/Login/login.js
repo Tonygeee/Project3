@@ -15,7 +15,7 @@ export default class Login extends Component {
 	}
 	validateForm = () => {
 		return this.state.email.length > 0 && this.state.password.length > 0;
-}
+	}
 	handleChange = event => {
 		this.setState({
 			[event.target.id]: event.target.value
@@ -28,7 +28,7 @@ export default class Login extends Component {
 	}
 	setRedirect = () => {
 		this.setState({
-		  redirect: true
+			redirect: true
 		})
 	}
 	renderRedirect() {
@@ -36,13 +36,14 @@ export default class Login extends Component {
 			return <Redirect to='/' />
 		}
 	}
-	
+
 	render() {
 		return (
-<<<<<<< HEAD
 			<div>
 				<div id="colorBody">
-					<img src="/images/logoAllWhite.png" alt="logo" />
+
+					<img id="logInImg" src="/images/logoAllWhite.png" />
+
 					<div className="container">
 						<div className="row">
 							<div className="col-md-6 col-md-offset-3">
@@ -62,7 +63,7 @@ export default class Login extends Component {
 										<div className="row">
 											<div className="col-lg-12">
 												<form onSubmit={this.handleSubmit}>
-													<FormGroup controlId="username" bsSize="large">
+													<FormGroup controlId="userName" bsSize="large">
 														<ControlLabel>Username</ControlLabel>
 														<FormControl
 															autoFocus
@@ -158,48 +159,46 @@ export default class Login extends Component {
 						</div>
 					</div>
 				</div >
-=======
-			<div className="Login">
-				{this.renderRedirect()}	
-				<form onSubmit={this.handleSubmit}>
-					<FormGroup controlId="username" bsSize="large">
-						<ControlLabel>Username</ControlLabel>
-						<FormControl
-							autoFocus
-							type="username"
-							value={this.state.username}
-							onChange={this.handleChange}
-						/>
-					</FormGroup>
-					<FormGroup controlId="email" bsSize="large">
-						<ControlLabel>Email</ControlLabel>
-						<FormControl
-							autoFocus
-							type="email"
-							value={this.state.email}
-							onChange={this.handleChange}
-						/>
-					</FormGroup>
-					<FormGroup controlId="password" bsSize="large">
-						<ControlLabel>Password</ControlLabel>
-						<FormControl
-							value={this.state.password}
-							onChange={this.handleChange}
-							type="password"
-						/>
-					</FormGroup>
-					<Button
-						onClick={this.setRedirect}
-						block
-						bsSize="large"
-						disabled={!this.validateForm()}
-						type="submit"
-					>
-						Login
+				<div className="Login">
+					{this.renderRedirect()}
+					<form onSubmit={this.handleSubmit}>
+						<FormGroup controlId="username" bsSize="large">
+							<ControlLabel>Username</ControlLabel>
+							<FormControl
+								autoFocus
+								type="username"
+								value={this.state.username}
+								onChange={this.handleChange}
+							/>
+						</FormGroup>
+						<FormGroup controlId="email" bsSize="large">
+							<ControlLabel>Email</ControlLabel>
+							<FormControl
+								autoFocus
+								type="email"
+								value={this.state.email}
+								onChange={this.handleChange}
+							/>
+						</FormGroup>
+						<FormGroup controlId="password" bsSize="large">
+							<ControlLabel>Password</ControlLabel>
+							<FormControl
+								value={this.state.password}
+								onChange={this.handleChange}
+								type="password"
+							/>
+						</FormGroup>
+						<Button
+							onClick={this.setRedirect}
+							block
+							bsSize="large"
+							disabled={!this.validateForm()}
+							type="submit"
+						>
+							Login
           			</Button>
-				</form>
->>>>>>> 1a915fd97fd1b32ba209c9ab17f191e16f3328c3
-			</div>
-		);
-	}
+					</form>
+				</div>
+				);
+			}
 }
