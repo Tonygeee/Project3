@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import './login.css';
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
@@ -12,8 +13,12 @@ export default class Login extends Component {
 		};
 	}
 	validateForm() {
-		return this.state.email.length > 0 && this.state.password.length > 0;
+		if (this.state.email.length > 0 && this.state.password.length > 0) {
+			return <Redirect to='/' />
+		}
+		console.log (this.state.email.length > 0 && this.state.password.length > 0);
 	}
+
 	handleChange = event => {
 		this.setState({
 			[event.target.id]: event.target.value
@@ -22,7 +27,7 @@ export default class Login extends Component {
 
 	handleSubmit = event => {
 		event.preventDefault();
-	}
+	};	
 
 	render() {
 		return (

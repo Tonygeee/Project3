@@ -27,6 +27,7 @@
     "if-env": "^1.0.4",
     "mongoose": "^5.0.17",
     "passport-local": "^1.0.0",
+    "react-bootstrap": "^0.32.1",
     "react-router-dom": "^4.3.1"
   }
 }
