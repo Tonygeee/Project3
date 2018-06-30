@@ -1,5 +1,5 @@
 module.exports = {
-  Profile: require("./profile")
+  Profile: require("./profile"),
   Event: require("./events")
 };
 
