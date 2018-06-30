@@ -7,8 +7,8 @@
 
 .panel-login>.panel-heading {
 	color: #00415d;
-	background-color: #fff;
-	border-color: #fff;
+	background-color: #f0f0f0;
+	border-color: #f0f0f0;
 	text-align: center;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .panel-login>.panel-heading a.active {
-	color: #029f5b;
+	color: #414042;
 	font-size: 18px;
 }
 
@@ -60,22 +60,22 @@
 }
 
 .btn-login {
-	background-color: #59B2E0;
+	background-color: #414042;
 	outline: none;
-	color: #fff;
+	color: #f0f0f0;
 	font-size: 14px;
 	height: auto;
 	font-weight: normal;
 	padding: 14px 0;
 	text-transform: uppercase;
-	border-color: #59B2E6;
+	border-color: #414042;
 }
 
 .btn-login:hover,
 .btn-login:focus {
-	color: #fff;
-	background-color: #53A3CD;
-	border-color: #53A3CD;
+	color: #f0f0f0;
+	background-color: #707070;
+	border-color: #707070;
 }
 
 .forgot-password {
@@ -90,22 +90,22 @@
 }
 
 .btn-register {
-	background-color: #1CB94E;
+	background-color: #414042;
 	outline: none;
-	color: #fff;
+	color: #f0f0f0;
 	font-size: 14px;
 	height: auto;
 	font-weight: normal;
 	padding: 14px 0;
 	text-transform: uppercase;
-	border-color: #1CB94A;
+	border-color: #414042;
 }
 
 .btn-register:hover,
 .btn-register:focus {
-	color: #fff;
-	background-color: #1CA347;
-	border-color: #1CA347;
+	color: #f0f0f0;
+	background-color: #707070;
+	border-color: #707070;
 }
 
 iframe {
@@ -149,5 +149,20 @@ animation: AnimationName 1s ease infinite;
 img{
 	margin: 0 auto;
 	display: block;
+	width: 200px;
+	height: 200px;
+	padding-top: 50px;
+	margin-bottom: 100px;
+}
+.panel-body{
+	background-color: #f0f0f0 !important;
+}
+
+element.style {
+	color: #414042 !important;
+}
+
+button{
+	color: #414042 !important;
 }
 

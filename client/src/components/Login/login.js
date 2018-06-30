@@ -78,7 +78,7 @@ class Login extends Component {
 														<div className="row">
 															<div className="col-lg-12">
 																<div className="text-center">
-																	<button> tabIndex="5" className="forgot-password">Forgot Password?</button>
+																	<button tabIndex="5" className="forgot-password">Forgot Password?</button>
 																</div>
 															</div>
 														</div>
