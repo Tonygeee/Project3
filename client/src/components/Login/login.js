@@ -64,7 +64,7 @@ class Login extends Component {
 	showPasswordConfirmationAlert = () => {
 		if (this.state.password !== this.state.confirmPassword) {
 			return (
-				<div class="alert alert-danger" role="alert">
+				<div className="alert alert-danger" role="alert">
 					<strong>Oh snap!</strong> Your passwords don't match.
 				</div>
 			)
@@ -102,7 +102,7 @@ class Login extends Component {
 		return (
 			<div>
 				<div id="colorBody">
-					<img src="/images/logoAllWhite.png" />
+					<img src="/images/logoAllWhite.png" alt="Buddy Up Logo" />
 					<div className="container">
 						<div className="row">
 							<div className="col-md-6 col-md-offset-3">
@@ -123,10 +123,10 @@ class Login extends Component {
 											<div className="col-lg-12">
 												<form id="login-form" style={this.getDisplayStyle('login')}>
 													<div className="form-group">
-														<input type="text" name="email" id="username1" tabIndex="1" className="form-control" placeholder="Username" value={this.state.email} autocomplete="new-username" onChange={this.handleInputChange} />
+														<input type="text" name="email" id="username1" tabIndex="1" className="form-control" placeholder="Username" value={this.state.email} autoComplete="new-username" onChange={this.handleInputChange} />
 													</div>
 													<div className="form-group">
-														<input autocomplete="new-password" type="password" name="password" id="password1" tabIndex="2" className="form-control" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
+														<input autoComplete="new-password" type="password" name="password" id="password1" tabIndex="2" className="form-control" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
 													</div>
 													<div className="form-group text-center">
 														<input type="checkbox" tabIndex="3" className="" name="remember" id="remember" />
@@ -155,16 +155,16 @@ class Login extends Component {
 												</form>
 												<form onSubmit={this.handleRegisterSubmit} id="register-form" style={this.getDisplayStyle('register')}>
 													<div className="form-group">
-														<input autocomplete="new-email" type="email" name="email" id="email" tabIndex="1" className="form-control" placeholder="Email Address" value={this.state.email} onChange={this.handleInputChange} />
+														<input autoComplete="new-email" type="email" name="email" id="email" tabIndex="1" className="form-control" placeholder="Email Address" value={this.state.email} onChange={this.handleInputChange} />
 													</div>
 													<div className="form-group">
-														<input type="text" autocomplete="new-username" name="userName" id="userName" tabIndex="1" className="form-control" placeholder="User Name" value={this.state.userName} onChange={this.handleInputChange} />
+														<input type="text" autoComplete="new-username" name="userName" id="userName" tabIndex="1" className="form-control" placeholder="User Name" value={this.state.userName} onChange={this.handleInputChange} />
 													</div>
 													<div className="form-group">
-														<input type="password" autocomplete="new-password" name="password" id="password2" tabIndex="2" className="form-control" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
+														<input type="password" autoComplete="new-password" name="password" id="password2" tabIndex="2" className="form-control" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
 													</div>
 													<div className="form-group">
-														<input type="password" autocomplete="new-password" name="confirmPassword" id="confirm-password" tabIndex="2" className="form-control" placeholder="Confirm Password" value={this.state.confirmPassword} onChange={this.handleInputChange} />
+														<input type="password" autoComplete="new-password" name="confirmPassword" id="confirm-password" tabIndex="2" className="form-control" placeholder="Confirm Password" value={this.state.confirmPassword} onChange={this.handleInputChange} />
 													</div>
 													{this.showPasswordConfirmationAlert()}
 													<div className="form-group">
