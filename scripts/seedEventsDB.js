@@ -5,13 +5,13 @@ mongoose.Promise = global.Promise;
 
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/profileInfo"/*,
+  process.env.MONGODB_URI || "mongodb://localhost/buddyup"/*,
   {
     useMongoClient: true
   }*/
 );
 
-const profileSeed = [
+const eventsSeed = [
   {
     eventName: "Dark Star Orchestra",
     eventDate: "10/23/18",
@@ -32,14 +32,14 @@ const profileSeed = [
   }
 ]
 
-  // db.Profile
-  // .remove({})
-  // .then(() => db.Book.collection.insertMany(bookSeed))
-  // .then(data => {
-  //   console.log(data.insertedCount + " records inserted!");
-  //   process.exit(0);
-  // })
-  // .catch(err => {
-  //   console.error(err);
-  //   process.exit(1);
-  // });
+db.Event
+  .remove({})
+  .then(() => db.Event.collection.insertMany(eventsSeed))
+  .then(data => {
+    console.log(data.insertedCount + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
