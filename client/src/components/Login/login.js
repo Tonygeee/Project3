@@ -102,7 +102,7 @@ class Login extends Component {
 		return (
 			<div>
 				<div id="colorBody">
-					<img src="/images/logoAllWhite.png" />
+					<img id="loginLogo" src="/images/logoAllWhite.png" />
 					<div className="container">
 						<div className="row">
 							<div className="col-md-6 col-md-offset-3">
