@@ -1,39 +1,100 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 import './login.css';
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import axios from 'axios';
 
-export default class Login extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			username: "",
-			email: "",
-			password: "",
-			redirect: false
-		};
+class Login extends Component {
+	state = {
+		currentSelection: 'login',
+		password: '',
+		email: '',
+		userName: '',
+		confirmPassword: '',
+		bio: '',
+		rememberMe: false,
+		redirect: false,
+		redirectPath: ''
+
 	}
-	validateForm = () => {
-		return this.state.email.length > 0 && this.state.password.length > 0;
-	}
-	handleChange = event => {
+
+	toggleStateOnSelection = (event, selection) => {
+		event.preventDefault();
 		this.setState({
-			[event.target.id]: event.target.value
+			currentSelection: selection,
+			password: '',
+			email: '',
+			userName: '',
+			confirmPassword: '',
+			bio: '',
+			rememberMe: false
+		})
+	}
+
+	getDisplayStyle = (formType) => {
+		if (this.state.currentSelection === formType) {
+			return { display: '' };
+		} else {
+			return { display: 'none' };
+		}
+	}
+
+	getLinkStyles = (linkType) => {
+		if (this.state.currentSelection === linkType) {
+			return { color: "#029f5b", fontSize: "18px" };
+		} else {
+			return { color: "#666", fontSize: "15px" };
+		}
+	}
+
+	handleInputChange = (event) => {
+		const { name, value } = event.target;
+		this.setState({
+			[name]: value
 		});
 	}
 
-
-	handleSubmit = event => {
-		event.preventDefault();
+	validateLoginForm = () => {
+		return this.state.email.length > 0 && this.state.password.length > 0;
 	}
-	setRedirect = () => {
+
+	validateRegisterForm = () => {
+		return this.state.email.length > 0 && this.state.password.length > 0 && this.state.userName.length > 0 && this.state.bio.length > 0 && (this.state.password === this.state.confirmPassword);
+	}
+
+	showPasswordConfirmationAlert = () => {
+		if (this.state.password !== this.state.confirmPassword) {
+			return (
+				<div class="alert alert-danger" role="alert">
+					<strong>Oh snap!</strong> Your passwords don't match.
+				</div>
+			)
+		}
+	}
+
+	handleRegisterSubmit = event => {
+		event.preventDefault();
+
+		axios.post('/api/profiles/main', {
+			userName: this.state.userName,
+			email: this.state.email,
+			password: this.state.password,
+			bio: this.state.bio
+		}).then(res => {
+			console.log(res.data);
+			this.setRedirect('login')
+		})
+	}
+
+	setRedirect = (path) => {
 		this.setState({
-			redirect: true
+			redirect: true,
+			redirectPath: `/${path}`,
+			currentSelection: path
 		})
 	}
 	renderRedirect() {
 		if (this.state.redirect) {
-			return <Redirect to='/' />
+			return <Redirect to={this.redirectPath} />
 		}
 	}
 
@@ -41,9 +102,7 @@ export default class Login extends Component {
 		return (
 			<div>
 				<div id="colorBody">
-
-					<img id="logInImg" src="/images/logoAllWhite.png" />
-
+					<img src="/images/logoAllWhite.png" />
 					<div className="container">
 						<div className="row">
 							<div className="col-md-6 col-md-offset-3">
@@ -51,10 +110,10 @@ export default class Login extends Component {
 									<div className="panel-heading">
 										<div className="row">
 											<div className="col-xs-6">
-												<button onClick={(e) => this.toggleStateOnSelection(e, 'login')} id="login-form-link">Login</button>
+												<button style={this.getLinkStyles('login')} onClick={(e) => this.toggleStateOnSelection(e, 'login')} id="login-form-link">Login</button>
 											</div>
 											<div className="col-xs-6">
-												<a href="/profile" onClick={(e) => this.toggleStateOnSelection(e, 'register')} id="register-form-link">Register</a>
+												<a href="/profile" style={this.getLinkStyles('register')} onClick={(e) => this.toggleStateOnSelection(e, 'register')} id="register-form-link">Register</a>
 											</div>
 										</div>
 										<hr />
@@ -62,48 +121,12 @@ export default class Login extends Component {
 									<div className="panel-body">
 										<div className="row">
 											<div className="col-lg-12">
-												<form onSubmit={this.handleSubmit}>
-													<FormGroup controlId="userName" bsSize="large">
-														<ControlLabel>Username</ControlLabel>
-														<FormControl
-															autoFocus
-															type="username"
-															value={this.state.username}
-															onChange={this.handleChange}
-														/>
-													</FormGroup>
-													<FormGroup controlId="email" bsSize="large">
-														<ControlLabel>Email</ControlLabel>
-														<FormControl
-															autoFocus
-															type="email"
-															value={this.state.email}
-															onChange={this.handleChange}
-														/>
-													</FormGroup>
-													<FormGroup controlId="password" bsSize="large">
-														<ControlLabel>Password</ControlLabel>
-														<FormControl
-															value={this.state.password}
-															onChange={this.handleChange}
-															type="password"
-														/>
-													</FormGroup>
-													<Button
-														block
-														bsSize="large"
-														disabled={!this.validateForm()}
-														type="submit"
-													>
-														Login
-          </Button>
-												</form>
-												{/* <form id="login-form" action="/main" method="post" style={this.getDisplayStyle('login')}>
+												<form id="login-form" style={this.getDisplayStyle('login')}>
 													<div className="form-group">
-														<input type="text" name="username" id="username1" tabIndex="1" className="form-control" placeholder="Username" value="" />
+														<input type="text" name="email" id="username1" tabIndex="1" className="form-control" placeholder="Username" value={this.state.email} autocomplete="new-username" onChange={this.handleInputChange} />
 													</div>
 													<div className="form-group">
-														<input type="password" name="password" id="password1" tabIndex="2" className="form-control" placeholder="Password" />
+														<input autocomplete="new-password" type="password" name="password" id="password1" tabIndex="2" className="form-control" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
 													</div>
 													<div className="form-group text-center">
 														<input type="checkbox" tabIndex="3" className="" name="remember" id="remember" />
@@ -112,7 +135,7 @@ export default class Login extends Component {
 													<div className="form-group">
 														<div className="row">
 															<div className="col-sm-6 col-sm-offset-3">
-																<input type="submit" name="login-submit" id="login-submit" tabIndex="4" className="form-control btn btn-login" value="Log In" />
+																<input type="submit" name="login-submit" id="login-submit" tabIndex="4" className="form-control btn btn-login" value="Log In" disabled={!this.validateLoginForm()} />
 															</div>
 															<div className="row">
 																<div className="fb-login-button" data-width="375" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true">
@@ -129,24 +152,30 @@ export default class Login extends Component {
 															</div>
 														</div>
 													</div>
-												</form> */}
-												<form id="register-form" action="/profile" method="post">
+												</form>
+												<form onSubmit={this.handleRegisterSubmit} id="register-form" style={this.getDisplayStyle('register')}>
 													<div className="form-group">
-														<input type="text" name="username" id="username2" tabIndex="1" className="form-control" placeholder="Username" value="" />
+														<input autocomplete="new-email" type="email" name="email" id="email" tabIndex="1" className="form-control" placeholder="Email Address" value={this.state.email} onChange={this.handleInputChange} />
 													</div>
 													<div className="form-group">
-														<input type="email" name="email" id="email" tabIndex="1" className="form-control" placeholder="Email Address" value="" />
+														<input type="text" autocomplete="new-username" name="userName" id="userName" tabIndex="1" className="form-control" placeholder="User Name" value={this.state.userName} onChange={this.handleInputChange} />
 													</div>
 													<div className="form-group">
-														<input type="password" name="password" id="password2" tabIndex="2" className="form-control" placeholder="Password" />
+														<input type="password" autocomplete="new-password" name="password" id="password2" tabIndex="2" className="form-control" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
 													</div>
 													<div className="form-group">
-														<input type="password" name="confirm-password" id="confirm-password" tabIndex="2" className="form-control" placeholder="Confirm Password" />
+														<input type="password" autocomplete="new-password" name="confirmPassword" id="confirm-password" tabIndex="2" className="form-control" placeholder="Confirm Password" value={this.state.confirmPassword} onChange={this.handleInputChange} />
 													</div>
+													{this.showPasswordConfirmationAlert()}
+													<div className="form-group">
+														<input type="text" name="bio" id="bio" tabIndex="2" className="form-control" placeholder="Biography" value={this.state.bio} onChange={this.handleInputChange} />
+													</div>
+
+
 													<div className="form-group">
 														<div className="row">
 															<div className="col-sm-6 col-sm-offset-3">
-																<input type="submit" name="register-submit" id="register-submit" tabIndex="4" className="form-control btn btn-register" value="Register Now" />
+																<input type="submit" name="register-submit" id="register-submit" tabIndex="4" className="form-control btn btn-register" value="Register Now" disabled={!this.validateRegisterForm()} />
 															</div>
 														</div>
 													</div>
@@ -159,46 +188,10 @@ export default class Login extends Component {
 						</div>
 					</div>
 				</div >
-				<div className="Login">
-					{this.renderRedirect()}
-					<form onSubmit={this.handleSubmit}>
-						<FormGroup controlId="username" bsSize="large">
-							<ControlLabel>Username</ControlLabel>
-							<FormControl
-								autoFocus
-								type="username"
-								value={this.state.username}
-								onChange={this.handleChange}
-							/>
-						</FormGroup>
-						<FormGroup controlId="email" bsSize="large">
-							<ControlLabel>Email</ControlLabel>
-							<FormControl
-								autoFocus
-								type="email"
-								value={this.state.email}
-								onChange={this.handleChange}
-							/>
-						</FormGroup>
-						<FormGroup controlId="password" bsSize="large">
-							<ControlLabel>Password</ControlLabel>
-							<FormControl
-								value={this.state.password}
-								onChange={this.handleChange}
-								type="password"
-							/>
-						</FormGroup>
-						<Button
-							onClick={this.setRedirect}
-							block
-							bsSize="large"
-							disabled={!this.validateForm()}
-							type="submit"
-						>
-							Login
-          			</Button>
-					</form>
-				</div>
-				);
-			}
+			</div>
+		)
+	}
+
 }
+
+export default Login;

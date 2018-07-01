@@ -170,3 +170,11 @@ button{
 	color: #4140 !important;
 }
 
+.form-control[disabled]{
+	background-color: #7F7E7F;
+}
+
+.alert{
+	width: 50%;
+	padding: 5px;
+}
