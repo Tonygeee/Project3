@@ -31,7 +31,7 @@ app.use(routes);
 
 
 // Connect to the Mongo TODO - DB CHANGE DB NAME
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/profileInfo");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/buddyup");
 
 // Start the API server
 app.listen(PORT, function () {
