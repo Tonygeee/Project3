@@ -1,22 +1,26 @@
-.logo {
-    width: 90px;
+#headerLogo {
+    width: 200px;
+    float: left;
+
+
 }
 
 .navbar-brand {
     padding: 0px;
 }
 
-/* .item1 {
+.item1 {
     background-color: white;
     opacity: 80%;
-} */
+    border-bottom: 6px solid #d62a81;
+}
 
 #searching {
     float: right !important;
-    padding-top: 
+    padding-top: 30px;
 }
 
-.item1 {
+/* .item1 {
   background: linear-gradient(270deg, #ffe300, #d62a81);
 background-size: 400% 400%;
 
@@ -39,4 +43,4 @@ animation: AnimationName 1s ease infinite;
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
-}
+} */
