@@ -10,6 +10,9 @@ import ChatContainer from '../../components/ChatContainer';
 import ChatScreen from '../../components/ChatScreen';
 import ChatTitle from '../../components/ChatTitle';
 import MessageForm from '../../components/MessageForm';
+// styling data file static
+import friends from "../../friends.json";
+
 
 const instanceLocator = "v1:us1:9444a659-fe48-4c3c-b739-9445db574fcd"
 const testToken = "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/9444a659-fe48-4c3c-b739-9445db574fcd/token"
@@ -21,7 +24,8 @@ class MainPage extends Component {
   constructor() {
     super()
     this.state = {
-      messages: []
+      messages: [],
+      friends: friends
     }
     console.log(this.state);
     this.sendMessage = this.sendMessage.bind(this)
@@ -35,6 +39,8 @@ class MainPage extends Component {
         url: testToken
       })
     })
+
+
 
     chatManager.connect()
       .then(currentUser => {
@@ -78,12 +84,21 @@ class MainPage extends Component {
           </ChatContainer>
         </Sidebar>
         <Main className="item3">
-          <ConnectionCard />
-          <ConnectionCard />
-          <ConnectionCard />
-          <ConnectionCard />
-          <ConnectionCard />
-          <ConnectionCard />
+        {this.state.friends.map( friend =>
+          <ConnectionCard 
+            // removeFriend={this.removeFriend}
+            id={friend.id}
+            key={friend.id}
+            userName={friend.userName}
+            image={friend.image}
+            facebookURL={friend.facebookURL}
+            instagramURL={friend.instagramURL}
+            bio={friend.bio}
+          />
+          )
+          }
+          
+    
         </Main>
       </div>
     )
