@@ -103,6 +103,7 @@ class Login extends Component {
 			<div>
 				<div id="colorBody">
 					<img id="loginLogo" src="/images/logoAllWhite.png" alt="Buddy Up Logo" />
+
 					<div className="container">
 						<div className="row">
 							<div className="col-md-6 col-md-offset-3">
