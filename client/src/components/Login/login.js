@@ -108,9 +108,14 @@ class Login extends Component {
 			<div>
 				{/* colorBody where gradient background is */}
 				<div id="colorBody">
+<<<<<<< HEAD
 					{/* all white logo */}
 					<img src="/images/logoAllWhite.png" id="loginLogo" alt="Buddy Up Logo" />
 					{/* container holds both forms */}
+=======
+					<img id="loginLogo" src="/images/logoAllWhite.png" alt="Buddy Up Logo" />
+
+>>>>>>> 8b4df47f7cfe2598fc403f104016a8ccb9e324c7
 					<div className="container">
 						<div className="row">
 							<div className="col-md-6 col-md-offset-3">
