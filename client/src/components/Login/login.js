@@ -85,12 +85,17 @@ class Login extends Component {
 		})
 	}
 
+	handleLoginSubmit = event => {
+		event.preventDefault();
+	}
+
 	setRedirect = (path) => {
 		this.setState({
 			redirect: true,
 			redirectPath: `/${path}`,
 			currentSelection: path
 		})
+		console.log(this.state.redirect)
 	}
 	renderRedirect() {
 		if (this.state.redirect) {
@@ -101,23 +106,24 @@ class Login extends Component {
 	render() {
 		return (
 			<div>
+				{/* colorBody where gradient background is */}
 				<div id="colorBody">
-<<<<<<< HEAD
-					<img src="/images/logoAllWhite.png" alt="Buddy Up Logo" />
-=======
-					<img id="loginLogo" src="/images/logoAllWhite.png" />
->>>>>>> c4003e475ae6beaf177bd38dc55fc0b8c6bfecda
+					{/* all white logo */}
+					<img src="/images/logoAllWhite.png" id="loginLogo" alt="Buddy Up Logo" />
+					{/* container holds both forms */}
 					<div className="container">
 						<div className="row">
 							<div className="col-md-6 col-md-offset-3">
+								{/* panel bootstrap styling for form */}
 								<div className="panel panel-login">
 									<div className="panel-heading">
 										<div className="row">
 											<div className="col-xs-6">
-												<button style={this.getLinkStyles('login')} onClick={(e) => this.toggleStateOnSelection(e, 'login')} id="login-form-link">Login</button>
+												{/* button to toggle between login and register */}
+												<div onClick={(e) => this.toggleStateOnSelection(e, 'login')} id="login-form-link">Login</div>
 											</div>
 											<div className="col-xs-6">
-												<a href="/profile" style={this.getLinkStyles('register')} onClick={(e) => this.toggleStateOnSelection(e, 'register')} id="register-form-link">Register</a>
+												<div onClick={(e) => this.toggleStateOnSelection(e, 'register')} id="register-form-link">Register</div>
 											</div>
 										</div>
 										<hr />
@@ -125,7 +131,8 @@ class Login extends Component {
 									<div className="panel-body">
 										<div className="row">
 											<div className="col-lg-12">
-												<form id="login-form" style={this.getDisplayStyle('login')}>
+												{/* login form starts here */}
+												<form id="login-form" style={this.getDisplayStyle('login')} onSubmit={this.handleLoginSubmit}>
 													<div className="form-group">
 														<input type="text" name="email" id="username1" tabIndex="1" className="form-control" placeholder="Username" value={this.state.email} autoComplete="new-username" onChange={this.handleInputChange} />
 													</div>
@@ -141,11 +148,12 @@ class Login extends Component {
 															<div className="col-sm-6 col-sm-offset-3">
 																<input type="submit" name="login-submit" id="login-submit" tabIndex="4" className="form-control btn btn-login" value="Log In" disabled={!this.validateLoginForm()} />
 															</div>
-															<div className="row">
-																<div className="fb-login-button" data-width="375" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true">
-																</div>
-															</div>
 														</div>
+														{/* <div className="row">
+															<div className="fb-login-button" data-width="375" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true">
+															</div>
+														</div> */}
+
 													</div>
 													<div className="form-group">
 														<div className="row">
