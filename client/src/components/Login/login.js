@@ -102,11 +102,7 @@ class Login extends Component {
 		return (
 			<div>
 				<div id="colorBody">
-<<<<<<< HEAD
-					<img src="/images/logoAllWhite.png" alt="Buddy Up Logo" />
-=======
-					<img id="loginLogo" src="/images/logoAllWhite.png" />
->>>>>>> c4003e475ae6beaf177bd38dc55fc0b8c6bfecda
+					<img id="loginLogo" src="/images/logoAllWhite.png" alt="Buddy Up Logo" />
 					<div className="container">
 						<div className="row">
 							<div className="col-md-6 col-md-offset-3">
