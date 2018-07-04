@@ -53,6 +53,17 @@ class Login extends Component {
 		});
 	}
 
+	handleLoginSubmit = event => {
+		event.preventDefault();
+
+		axios.get('/api/main', {
+			email: this.state.email,
+			password: this.state.password
+		}).then(res => {
+			this.setRedirect('/')
+		})
+	}
+
 	validateLoginForm = () => {
 		return this.state.email.length > 0 && this.state.password.length > 0;
 	}
