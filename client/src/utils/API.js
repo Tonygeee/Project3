@@ -6,8 +6,8 @@ export default {
     return axios.get("/api/main");
   },
   // Gets the profile with the given id
-  getProfile: function (id) {
-    return axios.get("/api/main/" + id);
+  getProfile: function (email) {
+    return axios.get("/api/main/" + email);
   },
     // Deletes the profile with the given id
     deleteProfile: function (id) {

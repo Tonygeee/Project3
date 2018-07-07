@@ -55,11 +55,12 @@ class Login extends Component {
 
 	handleLoginSubmit = event => {
 		event.preventDefault();
-
-		axios.get('/api/main', {
+		let sendEmail = this.state.email
+		axios.get('http://localhost:3001/api/main/' + sendEmail, {
 			email: this.state.email,
 			password: this.state.password
 		}).then(res => {
+			console.log(this.state.email);
 			this.setRedirect('/')
 		})
 	}
@@ -96,10 +97,6 @@ class Login extends Component {
 		})
 	}
 
-	handleLoginSubmit = event => {
-		event.preventDefault();
-	}
-
 	setRedirect = (path) => {
 		this.setState({
 			redirect: true,
@@ -120,7 +117,7 @@ class Login extends Component {
 				{/* colorBody where gradient background is */}
 				<div id="colorBody">
 					{/* all white logo */}
-					<img id="loginLogo" src="/images/logoAllWhite.png" id="loginLogo" alt="Buddy Up Logo" />
+					<img id="loginLogo" src="/images/logoAllWhite.png" alt="Buddy Up Logo" />
 					{/* container holds both forms */}
 					<div className="container">
 						<div className="row">
