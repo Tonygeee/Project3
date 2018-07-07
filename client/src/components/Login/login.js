@@ -17,6 +17,9 @@ class Login extends Component {
 
 	}
 
+	defaultImage = 'https://www.ienglishstatus.com/wp-content/uploads/2018/04/Sad-Profile-Pic-for-Whatsapp.png';
+	choseImage = false;
+
 	toggleStateOnSelection = (event, selection) => {
 		if (event) event.preventDefault();
 		this.setState({
@@ -90,7 +93,9 @@ class Login extends Component {
 			userName: this.state.userName,
 			email: this.state.email,
 			password: this.state.password,
-			bio: this.state.bio
+			bio: this.state.bio,
+			image: this.choseImage ? this.image : this.defaultImage
+
 		}).then(res => {
 			console.log(res.data);
 			this.toggleStateOnSelection(null, 'login')
@@ -104,6 +109,23 @@ class Login extends Component {
 			currentSelection: path
 		})
 		console.log(this.state.redirect)
+	}
+
+	previewFile = () => {
+		this.choseImage = true;
+		var preview = document.querySelector('#preview');
+		var file = document.querySelector('input[type=file]').files[0];
+		var reader = new FileReader();
+
+		reader.addEventListener("load", () => {
+			preview.src = reader.result;
+			this.image = reader.result
+
+		}, false);
+
+		if (file) {
+			reader.readAsDataURL(file);
+		}
 	}
 
 	render() {
@@ -188,6 +210,13 @@ class Login extends Component {
 													{this.showPasswordConfirmationAlert()}
 													<div className="form-group">
 														<input type="text" name="bio" id="bio" tabIndex="2" className="form-control" placeholder="Biography" value={this.state.bio} onChange={this.handleInputChange} />
+													</div>
+													<div className="form-group">
+														<label for="avatar">Profile picture:</label>
+														<img id="preview" src="http://via.placeholder.com/150x150" />
+														<input onChange={this.previewFile} type="file"
+															id="avatar" name="image"
+															accept="image/png, image/jpeg" />
 													</div>
 
 
