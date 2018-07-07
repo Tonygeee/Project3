@@ -19,7 +19,7 @@ const profilesSeed = [
     facebookURL: "myfacebook.com",
     instagramURL: "myinsta.com",
     bio: "Shank cow tri-tip andouille chuck brisket pancetta. Doner pork loin pork belly shoulder, pastrami turkey meatball frankfurter. Corned beef ball tip cow tri-tip tongue strip steak pastrami drumstick t-bone prosciutto ground round ham turkey salami shank. Ball tip bacon kielbasa, andouille cow landjaeger ground round strip steak biltong turducken jerky. ",
-    image: ""
+    image: "https://www.ienglishstatus.com/wp-content/uploads/2018/04/Sad-Profile-Pic-for-Whatsapp.png"
   },
   {
     userName: "Jason",
@@ -28,7 +28,7 @@ const profilesSeed = [
     facebookURL: "myfacebook.com",
     instagramURL: "myinsta.com",
     bio: "Shank cow tri-tip andouille chuck brisket pancetta. Doner pork loin pork belly shoulder, pastrami turkey meatball frankfurter. Corned beef ball tip cow tri-tip tongue strip steak pastrami drumstick t-bone prosciutto ground round ham turkey salami shank. Ball tip bacon kielbasa, andouille cow landjaeger ground round strip steak biltong turducken jerky. ",
-    image: ""
+    image: "https://www.ienglishstatus.com/wp-content/uploads/2018/04/Sad-Profile-Pic-for-Whatsapp.png"
   },
   {
     userName: "Sam",
@@ -37,7 +37,7 @@ const profilesSeed = [
     facebookURL: "myfacebook.com",
     instagramURL: "myinsta.com",
     bio: "Shank cow tri-tip andouille chuck brisket pancetta. Doner pork loin pork belly shoulder, pastrami turkey meatball frankfurter. Corned beef ball tip cow tri-tip tongue strip steak pastrami drumstick t-bone prosciutto ground round ham turkey salami shank. Ball tip bacon kielbasa, andouille cow landjaeger ground round strip steak biltong turducken jerky. ",
-    image: ""
+    image: "https://www.ienglishstatus.com/wp-content/uploads/2018/04/Sad-Profile-Pic-for-Whatsapp.png"
   }
 ]
 
