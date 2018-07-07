@@ -1,8 +1,6 @@
 #headerLogo {
     width: 200px;
     float: left;
-
-
 }
 
 .navbar-brand {
@@ -12,7 +10,17 @@
 .item1 {
     background-color: white;
     opacity: 80%;
-    border-bottom: 6px solid #d62a81;
+    /* border-bottom: 6px solid #d62a81; */
+}
+
+.item1:after {
+    content: "";
+    background: -webkit-linear-gradient(left, rgba(92, 7, 52, 1) 0%, rgba(134, 29, 84, 1) 12%, rgba(255, 93, 177, 1) 47%, rgba(83, 0, 30, 1) 100%);
+    display: block;
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    bottom: 5;
 }
 
 #searching {
