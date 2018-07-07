@@ -18,7 +18,7 @@ class Login extends Component {
 	}
 
 	toggleStateOnSelection = (event, selection) => {
-		event.preventDefault();
+		if (event) event.preventDefault();
 		this.setState({
 			currentSelection: selection,
 			password: '',
@@ -61,7 +61,7 @@ class Login extends Component {
 			password: this.state.password
 		}).then(res => {
 			console.log(this.state.email);
-			this.setRedirect('/')
+			this.setRedirect('')
 		})
 	}
 
@@ -93,7 +93,7 @@ class Login extends Component {
 			bio: this.state.bio
 		}).then(res => {
 			console.log(res.data);
-			this.setRedirect('login')
+			this.toggleStateOnSelection(null, 'login')
 		})
 	}
 
@@ -105,13 +105,12 @@ class Login extends Component {
 		})
 		console.log(this.state.redirect)
 	}
-	renderRedirect() {
-		if (this.state.redirect) {
-			return <Redirect to={this.redirectPath} />
-		}
-	}
 
 	render() {
+		if (this.state.redirect) {
+			return <Redirect to={this.state.redirectPath} />
+		}
+
 		return (
 			<div>
 				{/* colorBody where gradient background is */}
