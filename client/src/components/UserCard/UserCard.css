@@ -1,3 +1,7 @@
 a {
     display: block;
 }
+
+.panel-default .panel-heading .panel-body{
+	background-color: white !important;
+}
