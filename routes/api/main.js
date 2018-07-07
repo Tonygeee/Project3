@@ -6,10 +6,10 @@ router.route("/")
     .get(profileControler.findAll)
     .post(profileControler.create);
 
-// Matches with "/api/main/:id"
+// Matches with "/api/main/:email"
 router
-    .route("/:id")
-    .get(profileControler.findById)
+    .route("/:email")
+    .get(profileControler.findOne)
     .put(profileControler.update)
     .delete(profileControler.remove);
 

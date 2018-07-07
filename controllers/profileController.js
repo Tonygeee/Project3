@@ -2,6 +2,14 @@ const db = require("../models");
 
 // Defining methods for the profileController
 module.exports = {
+  findOne: function (req, res) {
+    console.log("reached this point!!!!");
+    db.Profile
+      .find({ email: req.params.email })
+      // .sort({ date: -1 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   findAll: function (req, res) {
     db.Profile
       .find(req.query)
@@ -9,9 +17,9 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findById: function (req, res) {
+  findProfile: function (req, res) {
     db.Profile
-      .findById(req.params.id)
+      .findOne({ userName: req.params.email })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
