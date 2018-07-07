@@ -8,7 +8,7 @@ class Menu extends React.Component {
         super()
         this.state = {
             events: [],
-            zipCode: "",
+            postalCode: "",
             searchTerm: ""
         };
         console.log(this.state);
@@ -33,22 +33,15 @@ class Menu extends React.Component {
 
     render() {
         return (
-            < div className="panel panel-default" >
+            <div>
+            <div className="panel panel-default" >
                 <div className="panel-heading">
                     <h3 className="panel-title">Menu</h3>
                     <h2 className="panel-title">
                         Zip Code: <input
                             type="text"
                             name="zipCode"
-                            value={this.state.zipCode}
-                            onChange={this.handleInputChange}
-                        />
-                    </h2>
-                    <h2 className="panel-title">
-                        Search: <input
-                            type="text"
-                            name="searchTerm"
-                            value={this.state.searchTerm}
+                            value={this.state.postalCode}
                             onChange={this.handleInputChange}
                         />
                     </h2>
@@ -60,7 +53,35 @@ class Menu extends React.Component {
                 </div>
                 <div className="panel-body">Events
                     {!this.state.events.length ? (
-                        <h1 className="text-center">We didn't find any events for you</h1>
+                            <div w-type="event-discovery"
+                                w-tmapikey="5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG"
+                                w-googleapikey="YOUR_GOOGLE_API_KEY"
+                                w-keyword=""
+                                w-theme="listview"
+                                w-colorscheme="custom"
+                                w-width="350" w-height="600"
+                                w-size="25" w-border="2"
+                                w-borderradius="20"
+                                w-postalcode=""
+                                w-radius="25"
+                                w-period="week"
+                                w-layout="vertical"
+                                w-attractionid=""
+                                w-promoterid=""
+                                w-venueid=""
+                                w-affiliateid=""
+                                w-segmentid=""
+                                w-proportion="custom"
+                                w-titlelink="off"
+                                w-sorting="groupByName"
+                                w-id="id_ugaaj6"
+                                w-countrycode="US"
+                                w-source=""
+                                w-backgroundcolor="#ffffff"
+                                w-bordercolor="#F5865c"
+                                w-countercolor="#ffffff"
+                                w-titlehovercolor="#ffffff"
+                                w-latlong=""></div>
                     ) :
                         (
                             <EventList>
@@ -70,7 +91,7 @@ class Menu extends React.Component {
                                             key={event.title}
                                             title={event.title}
                                             href={event.href}
-                                            artist={event.ingredients}
+                                          artist={event.ingredients}
                                             thumbnail={event.thumbnail}
                                         />
                                     );
@@ -79,6 +100,7 @@ class Menu extends React.Component {
                         )}
                 </div>
             </div >
+        </div>
         )
     }
 }
