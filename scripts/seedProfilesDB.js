@@ -16,27 +16,27 @@ const profilesSeed = [
     userName: "Sara",
     password: "1234",
     email: "Stephens@mail.com",
-    facebookURL: "myfacebook.com"
-    instagramURL: "myinsta.com"
-    bio: "Shank cow tri-tip andouille chuck brisket pancetta. Doner pork loin pork belly shoulder, pastrami turkey meatball frankfurter. Corned beef ball tip cow tri-tip tongue strip steak pastrami drumstick t-bone prosciutto ground round ham turkey salami shank. Ball tip bacon kielbasa, andouille cow landjaeger ground round strip steak biltong turducken jerky. "
+    facebookURL: "myfacebook.com",
+    instagramURL: "myinsta.com",
+    bio: "Shank cow tri-tip andouille chuck brisket pancetta. Doner pork loin pork belly shoulder, pastrami turkey meatball frankfurter. Corned beef ball tip cow tri-tip tongue strip steak pastrami drumstick t-bone prosciutto ground round ham turkey salami shank. Ball tip bacon kielbasa, andouille cow landjaeger ground round strip steak biltong turducken jerky. ",
     image: ""
   },
   {
     userName: "Jason",
     password: "1234",
     email: "Stephens@mail.com",
-    facebookURL: "myfacebook.com"
-    instagramURL: "myinsta.com"
-    bio: "Shank cow tri-tip andouille chuck brisket pancetta. Doner pork loin pork belly shoulder, pastrami turkey meatball frankfurter. Corned beef ball tip cow tri-tip tongue strip steak pastrami drumstick t-bone prosciutto ground round ham turkey salami shank. Ball tip bacon kielbasa, andouille cow landjaeger ground round strip steak biltong turducken jerky. "
+    facebookURL: "myfacebook.com",
+    instagramURL: "myinsta.com",
+    bio: "Shank cow tri-tip andouille chuck brisket pancetta. Doner pork loin pork belly shoulder, pastrami turkey meatball frankfurter. Corned beef ball tip cow tri-tip tongue strip steak pastrami drumstick t-bone prosciutto ground round ham turkey salami shank. Ball tip bacon kielbasa, andouille cow landjaeger ground round strip steak biltong turducken jerky. ",
     image: ""
   },
   {
     userName: "Sam",
     password: "1234",
     email: "Stephens@mail.com",
-    facebookURL: "myfacebook.com"
-    instagramURL: "myinsta.com"
-    bio: "Shank cow tri-tip andouille chuck brisket pancetta. Doner pork loin pork belly shoulder, pastrami turkey meatball frankfurter. Corned beef ball tip cow tri-tip tongue strip steak pastrami drumstick t-bone prosciutto ground round ham turkey salami shank. Ball tip bacon kielbasa, andouille cow landjaeger ground round strip steak biltong turducken jerky. "
+    facebookURL: "myfacebook.com",
+    instagramURL: "myinsta.com",
+    bio: "Shank cow tri-tip andouille chuck brisket pancetta. Doner pork loin pork belly shoulder, pastrami turkey meatball frankfurter. Corned beef ball tip cow tri-tip tongue strip steak pastrami drumstick t-bone prosciutto ground round ham turkey salami shank. Ball tip bacon kielbasa, andouille cow landjaeger ground round strip steak biltong turducken jerky. ",
     image: ""
   }
 ]
