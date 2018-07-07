@@ -86,7 +86,7 @@ class Login extends Component {
 	handleRegisterSubmit = event => {
 		event.preventDefault();
 
-		axios.post('/api/profiles/main', {
+		axios.post('http://localhost:3001/api/profiles/main', {
 			userName: this.state.userName,
 			email: this.state.email,
 			password: this.state.password,
