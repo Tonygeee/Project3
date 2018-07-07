@@ -61,7 +61,7 @@ class Login extends Component {
 			password: this.state.password
 		}).then(res => {
 			console.log(this.state.email);
-			this.setRedirect('')
+			this.setRedirect('loggedin')
 		})
 	}
 
