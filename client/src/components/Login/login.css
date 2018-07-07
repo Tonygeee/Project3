@@ -149,13 +149,14 @@ animation: AnimationName 1s ease infinite;
 #loginLogo{
 	margin: 0 auto;
 	display: block;
-	width: 200px;
-	height: 200px;
+	width: 300px;
+	height: 320px;
 	padding-top: 50px;
-	margin-bottom: 50px;
+	margin-bottom: 10px;
 }
 .panel-body{
-	background-color: #f0f0f0 !important;
+	background-color: white;
+	margin-left: 0px !important;
 }
 
 element.style {

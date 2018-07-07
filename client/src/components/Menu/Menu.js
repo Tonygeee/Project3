@@ -36,9 +36,8 @@ class Menu extends React.Component {
             <div>
             <div className="panel panel-default" >
                 <div className="panel-heading">
-                    <h3 className="panel-title">Menu</h3>
                     <h2 className="panel-title">
-                        Zip Code: <input
+                      Enter Your Zip Code: <input
                             type="text"
                             name="zipCode"
                             value={this.state.event}
@@ -48,10 +47,10 @@ class Menu extends React.Component {
                     <button
                         onClick={this.handleFormSubmit}
                         type="success"
-                        className="input-lg"
+                        className="btn-card btn btn-info"
                     >Submit</button>
                 </div>
-                <div className="panel-body">Events
+                <div className="panel-body">
                     {!this.state.events.length ? (
                             <div w-type="event-discovery"
                                 w-tmapikey="5QGCEXAsJowiCI4n1uAwMlCGAcSNAEmG"

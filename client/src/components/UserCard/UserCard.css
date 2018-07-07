@@ -2,6 +2,13 @@ a {
     display: block;
 }
 
-.panel-default .panel-heading .panel-body{
-	background-color: white !important;
+.panel-top {
+	margin-top: 3em;
+	margin-left: 4em;
 }
+
+.side-button {
+	margin-left: 3em;
+}
+
+

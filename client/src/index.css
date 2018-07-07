@@ -4,6 +4,14 @@ body {
   font-family: sans-serif;
 }
 
-.panel-default .panel-heading .panel-body{
+.panel-heading {
 	background-color: white !important;
+	outline-color: white;
+	border-color: white;
+}
+
+.panel-body {
+	background-color: white !important;
+	outline-color: white;
+	border-color: white;
 }
