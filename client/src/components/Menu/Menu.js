@@ -41,7 +41,7 @@ class Menu extends React.Component {
                         Zip Code: <input
                             type="text"
                             name="zipCode"
-                            value={this.state.postalCode}
+                            value={this.state.event}
                             onChange={this.handleInputChange}
                         />
                     </h2>
