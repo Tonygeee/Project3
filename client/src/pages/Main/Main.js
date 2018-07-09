@@ -94,7 +94,6 @@ class MainPage extends Component {
         <Main className="item3">
           {this.state.friends.map(friend =>
             <ConnectionCard
-              // removeFriend={this.removeFriend}
               id={friend.id}
               key={friend.id}
               userName={friend.userName}

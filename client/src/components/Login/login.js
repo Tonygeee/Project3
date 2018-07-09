@@ -212,7 +212,7 @@ class Login extends Component {
 														<input type="text" name="bio" id="bio" tabIndex="2" className="form-control" placeholder="Biography" value={this.state.bio} onChange={this.handleInputChange} />
 													</div>
 													<div className="form-group">
-														<label for="avatar">Profile picture:</label>
+														<label htmlFor="avatar">Profile picture:</label>
 														<img id="preview" src="http://via.placeholder.com/150x150" />
 														<input onChange={this.previewFile} type="file"
 															id="avatar" name="image"
