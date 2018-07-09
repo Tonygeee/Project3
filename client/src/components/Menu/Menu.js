@@ -33,42 +33,53 @@ class Menu extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className="panel panel-default" >
-                    <div className="panel-heading">
-                        <h2 className="panel-title">
-                            Enter Your Zip Code: <input
-                                type="text"
-                                name="zipCode"
-                                value={this.state.event}
-                                onChange={this.handleInputChange}
-                            />
-                        </h2>
-                        <button
-                            onClick={this.handleFormSubmit}
-                            type="success"
-                            className="btn-card btn btn-info"
-                        >Submit</button>
-                    </div>
-                    <div className="panel-body">
-                        <EventList>
-                            {this.state.events.map(event => {
-                                return (
-                                    <EventListItems
-                                        key={event.title}
-                                        title={event.title}
-                                        href={event.href}
-                                        artist={event.ingredients}
-                                        thumbnail={event.thumbnail}
-                                    />
-                                );
-                            })}
-                        </EventList>
-                    </div>
+            < div className="panel panel-default" >
+                <div className="panel-heading">
+                    <h3 className="panel-title">Menu</h3>
+                    <h2 className="panel-title">
+                        Zip Code: <input
+                            type="text"
+                            name="zipCode"
+                            value={this.state.zipCode}
+                            onChange={this.handleInputChange}
+                        />
+                    </h2>
+                    <h2 className="panel-title">
+                        Search: <input
+                            type="text"
+                            name="searchTerm"
+                            value={this.state.searchTerm}
+                            onChange={this.handleInputChange}
+                        />
+                    </h2>
+                    <button
+                        onClick={this.handleFormSubmit}
+                        type="success"
+                        className="input-lg"
+                    >Submit</button>
                 </div>
-            </div>
+                <div className="panel-body">Events
+                    {!this.state.events.length ? (
+                        <h1 className="text-center">We didn't find any events for you</h1>
+                    ) :
+                        (
+                            <EventList>
+                                {this.state.events.map(event => {
+                                    return (
+                                        <EventListItems
+                                            key={event.title}
+                                            title={event.title}
+                                            href={event.href}
+                                            artist={event.ingredients}
+                                            thumbnail={event.thumbnail}
+                                        />
+                                    );
+                                })}
+                            </EventList>
+                        )}
+                </div>
+            </div >
         )
     }
 }
-
 export default Menu;
