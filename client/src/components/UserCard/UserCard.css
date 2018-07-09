@@ -1,3 +1,14 @@
 a {
     display: block;
 }
+
+.panel-top {
+	margin-top: 3em;
+	margin-left: 4em;
+}
+
+.side-button {
+	margin-left: 3em;
+}
+
+

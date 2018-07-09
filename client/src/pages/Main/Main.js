@@ -10,6 +10,10 @@ import ChatContainer from '../../components/ChatContainer';
 import ChatScreen from '../../components/ChatScreen';
 import ChatTitle from '../../components/ChatTitle';
 import MessageForm from '../../components/MessageForm';
+import Api from '../../utils/API';
+// styling data file static
+// import friends from "../../friends.json";
+
 
 const instanceLocator = "v1:us1:9444a659-fe48-4c3c-b739-9445db574fcd"
 const testToken = "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/9444a659-fe48-4c3c-b739-9445db574fcd/token"
@@ -21,13 +25,23 @@ class MainPage extends Component {
   constructor() {
     super()
     this.state = {
-      messages: []
+      messages: [],
+      friends: []
     }
     console.log(this.state);
     this.sendMessage = this.sendMessage.bind(this)
   }
 
   componentDidMount() {
+    Api.getProfiles()
+      .then(res => {
+        console.log(res);
+        this.setState({
+          friends: res.data
+        })
+      })
+      .catch(err => console.log(err));
+
     const chatManager = new Chatkit.ChatManager({
       instanceLocator: instanceLocator,
       userId: username,
@@ -78,12 +92,20 @@ class MainPage extends Component {
           </ChatContainer>
         </Sidebar>
         <Main className="item3">
-          <ConnectionCard />
-          <ConnectionCard />
-          <ConnectionCard />
-          <ConnectionCard />
-          <ConnectionCard />
-          <ConnectionCard />
+          {this.state.friends.map(friend =>
+            <ConnectionCard
+              id={friend.id}
+              key={friend.id}
+              userName={friend.userName}
+              image={friend.image}
+              facebookURL={friend.facebookURL}
+              instagramURL={friend.instagramURL}
+              bio={friend.bio}
+            />
+          )
+          }
+
+
         </Main>
       </div>
     )

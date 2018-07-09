@@ -1,15 +1,14 @@
 import React from 'react';
 import './UserCard.css';
 
-function UserCard() {
+const UserCard = props => {
     return (
-        <div className="panel panel-default">
-            <div className="panel-heading">Name and Picture</div>
+        <div className="panel panel-default top-panel">
+     
+            <div className="profilePic">{props.image}</div>
+            <div className="panel-top">{props.userName} User Name</div>
             <div className="panel-body">
-                <button>Edit Profile</button>
-                <button>Connections</button>
-                <button>Events</button>
-                <button>Past Connections</button>
+                <button className="btn-card btn btn-info">Connections</button>
             </div>
         </div>
     )

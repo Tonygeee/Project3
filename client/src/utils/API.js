@@ -3,11 +3,11 @@ import axios from "axios";
 export default {
   // Gets all profiles
   getProfiles: function () {
-    return axios.get("/api/main");
+    return axios.get("/api/profiles/main");
   },
   // Gets the profile with the given id
-  getProfile: function (id) {
-    return axios.get("/api/main/" + id);
+  getProfile: function (email) {
+    return axios.get("/api/main/" + email);
   },
   // Deletes the profile with the given id
   deleteProfile: function (id) {
@@ -20,4 +20,5 @@ export default {
   getEvents: function (query) {
     return axios.get("api/search", { params: { q: query } });
   }
-};
+}
+

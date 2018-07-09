@@ -17,8 +17,11 @@ class Login extends Component {
 
 	}
 
+	defaultImage = 'https://www.ienglishstatus.com/wp-content/uploads/2018/04/Sad-Profile-Pic-for-Whatsapp.png';
+	choseImage = false;
+
 	toggleStateOnSelection = (event, selection) => {
-		event.preventDefault();
+		if (event) event.preventDefault();
 		this.setState({
 			currentSelection: selection,
 			password: '',
@@ -55,12 +58,13 @@ class Login extends Component {
 
 	handleLoginSubmit = event => {
 		event.preventDefault();
-
-		axios.get('/api/main', {
+		let sendEmail = this.state.email
+		axios.get('http://localhost:3001/api/main/' + sendEmail, {
 			email: this.state.email,
 			password: this.state.password
 		}).then(res => {
-			this.setRedirect('/')
+			console.log(this.state.email);
+			this.setRedirect('loggedin')
 		})
 	}
 
@@ -85,19 +89,17 @@ class Login extends Component {
 	handleRegisterSubmit = event => {
 		event.preventDefault();
 
-		axios.post('/api/profiles/main', {
+		axios.post('http://localhost:3001/api/profiles/main', {
 			userName: this.state.userName,
 			email: this.state.email,
 			password: this.state.password,
-			bio: this.state.bio
+			bio: this.state.bio,
+			image: this.choseImage ? this.image : this.defaultImage
+
 		}).then(res => {
 			console.log(res.data);
-			this.setRedirect('login')
+			this.toggleStateOnSelection(null, 'login')
 		})
-	}
-
-	handleLoginSubmit = event => {
-		event.preventDefault();
 	}
 
 	setRedirect = (path) => {
@@ -108,19 +110,35 @@ class Login extends Component {
 		})
 		console.log(this.state.redirect)
 	}
-	renderRedirect() {
-		if (this.state.redirect) {
-			return <Redirect to={this.redirectPath} />
+
+	previewFile = () => {
+		this.choseImage = true;
+		var preview = document.querySelector('#preview');
+		var file = document.querySelector('input[type=file]').files[0];
+		var reader = new FileReader();
+
+		reader.addEventListener("load", () => {
+			preview.src = reader.result;
+			this.image = reader.result
+
+		}, false);
+
+		if (file) {
+			reader.readAsDataURL(file);
 		}
 	}
 
 	render() {
+		if (this.state.redirect) {
+			return <Redirect to={this.state.redirectPath} />
+		}
+
 		return (
 			<div>
 				{/* colorBody where gradient background is */}
 				<div id="colorBody">
 					{/* all white logo */}
-					<img id="loginLogo" src="/images/logoAllWhite.png" id="loginLogo" alt="Buddy Up Logo" />
+					<img id="loginLogo" src="/images/logoAllWhite.png" alt="Buddy Up Logo" />
 					{/* container holds both forms */}
 					<div className="container">
 						<div className="row">
@@ -192,6 +210,13 @@ class Login extends Component {
 													{this.showPasswordConfirmationAlert()}
 													<div className="form-group">
 														<input type="text" name="bio" id="bio" tabIndex="2" className="form-control" placeholder="Biography" value={this.state.bio} onChange={this.handleInputChange} />
+													</div>
+													<div className="form-group">
+														<label htmlFor="avatar">Profile picture:</label>
+														<img id="preview" alt="profile pic" src="http://via.placeholder.com/150x150" />
+														<input onChange={this.previewFile} type="file"
+															id="avatar" name="image"
+															accept="image/png, image/jpeg" />
 													</div>
 
 

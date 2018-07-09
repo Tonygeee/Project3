@@ -1,7 +1,72 @@
-.cCard {
+/*.cCard {
     display: flex;
     flex-flow: column;
     border: 1px solid black;
     border-radius: 1rem;
     padding: 2rem;
+}*/
+
+.card {
+  background: white;
+  border-radius: 2px;
+  height: 475px;
+  display: block;
+  overflow: visible;
+  margin: 1rem;
+  position: relative;
+  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  text-align: left;
+  overflow-x: scroll;
 }
+
+img {
+    margin-top: 10px;
+    vertical-align: middle;
+    border-radius: 50%;
+    width: 154px;
+    height: 154px;
+}
+
+li {
+    margin-top: 20px;
+    word-spacing: 0.5px;
+    letter-spacing: 0.4px;
+    line-height: 1.3em;
+}    
+
+.btn-card {
+  background-color: #F5865c !important;
+  border-color: #F5865c;
+  color: white !important;
+  margin-bottom: 25px;
+}
+
+.panel-title2 {
+  color: #F5865c !important;
+
+}
+
+.card > .img-container {
+  max-width: 255px;
+/*  height: 30%;
+  overflow: visible;*/
+  text-align: center;
+}
+.card > .img-container > img {
+  width: 60%
+}
+
+.card > .content {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 15px;
+}
+
+.card > .content > ul {
+  list-style-type: none;
+}
+
+.card > .content > ul > li {
+  margin-top: 18px;
+}
+
