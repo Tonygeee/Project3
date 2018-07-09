@@ -26,7 +26,8 @@ class MainPage extends Component {
     super()
     this.state = {
       messages: [],
-      friends: []
+      friends: [],
+      user: {}
     }
     console.log(this.state);
     this.sendMessage = this.sendMessage.bind(this)
@@ -39,6 +40,22 @@ class MainPage extends Component {
         this.setState({
           friends: res.data
         })
+      })
+      .catch(err => console.log(err));
+
+    console.log(localStorage.getItem("email"));
+
+    Api.getProfile(localStorage.getItem("email"))
+      .then(res => {
+        console.log(res.data[0]);
+        this.setState({
+          user: {
+            image: res.data[0].image,
+            username: res.data[0].userName,
+            bio: res.data[0].bio
+          }
+        })
+        console.log(this.state.user.username);
       })
       .catch(err => console.log(err));
 
@@ -79,7 +96,11 @@ class MainPage extends Component {
       <div className="grid-container">
         <Header className="item1" />
         <Sidebar className="item2">
-          <UserCard />
+          <UserCard
+            image={this.state.user.image}
+            username={this.state.user.username}
+            bio={this.state.user.bio}
+          />
           <Menu>
           </Menu>
           <ChatContainer>
