@@ -15,10 +15,11 @@ export default {
   },
   // Saves a profile to the database
   saveProfile: function (profileData) {
-    return axios.post("/api/main", profileData);
+    return axios.post("/api/main/", profileData);
   },
   getEvents: function (query) {
-    return axios.get("api/search", { params: { q: query } });
+    console.log(query);
+    return axios.get("https://app.ticketmaster.com/discovery/v2/events.json?postalCode=" + query + "&apikey=NyUgIOdhF4S6fXn0BFIY7Afii13kPKnc");
   }
 }
 

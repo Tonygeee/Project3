@@ -1,14 +1,14 @@
 import React from 'react';
 import './Menu.css';
 import API from '../../utils/API';
-import { EventList, EventListItems } from '../EventList';
+import { EventList, EventListItem } from "../EventList";
 
 class Menu extends React.Component {
     constructor() {
         super()
         this.state = {
-            events: [],
-            postalCode: "",
+            events: {},
+            zipCode: "",
             searchTerm: ""
         };
         console.log(this.state);
@@ -26,8 +26,8 @@ class Menu extends React.Component {
     handleFormSubmit = event => {
         // When the form is submitted, prevent its default behavior, get events update the events state
         event.preventDefault();
-        API.getEvents(this.state.searchTerm)
-            .then(res => this.setState({ events: res.data }))
+        API.getEvents(this.state.zipCode)
+            .then(res => this.setState({ events: res.data._embedded.events }))
             .catch(err => console.log(err));
     };
 
@@ -65,13 +65,13 @@ class Menu extends React.Component {
                         (
                             <EventList>
                                 {this.state.events.map(event => {
+                                    console.log(event)
                                     return (
-                                        <EventListItems
-                                            key={event.title}
-                                            title={event.title}
-                                            href={event.href}
-                                            artist={event.ingredients}
-                                            thumbnail={event.thumbnail}
+                                        <EventListItem
+                                            key={event.name}
+                                            title={event.name}
+                                            url={event.url}
+                                            venue={event._embedded.venues[0].name}
                                         />
                                     );
                                 })}

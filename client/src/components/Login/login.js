@@ -59,7 +59,7 @@ class Login extends Component {
 	handleLoginSubmit = event => {
 		event.preventDefault();
 		let sendEmail = this.state.email
-		axios.get('http://localhost:3001/api/main/' + sendEmail, {
+		axios.get('/api/main/' + sendEmail, {
 			email: this.state.email,
 			password: this.state.password
 		}).then(res => {
