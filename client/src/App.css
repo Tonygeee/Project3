@@ -9,9 +9,10 @@
 
 .item3 {
   grid-column: span 1;
-  display: grid;
+  display: inline-grid;
   grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
   grid-gap: 1rem;
+  grid-template-rows: 25% 100px auto;
 }
 
 .grid-container {

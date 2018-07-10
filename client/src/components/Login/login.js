@@ -64,6 +64,7 @@ class Login extends Component {
 			password: this.state.password
 		}).then(res => {
 			console.log(this.state.email);
+			localStorage.setItem("email", this.state.email);
 			this.setRedirect('loggedin')
 		})
 	}
@@ -212,8 +213,8 @@ class Login extends Component {
 														<input type="text" name="bio" id="bio" tabIndex="2" className="form-control" placeholder="Biography" value={this.state.bio} onChange={this.handleInputChange} />
 													</div>
 													<div className="form-group">
-														<label for="avatar">Profile picture:</label>
-														<img id="preview" src="http://via.placeholder.com/150x150" />
+														<label htmlFor="avatar">Profile picture:</label>
+														<img id="preview" alt="placeholder" src="http://via.placeholder.com/150x150" />
 														<input onChange={this.previewFile} type="file"
 															id="avatar" name="image"
 															accept="image/png, image/jpeg" />
