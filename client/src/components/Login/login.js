@@ -11,6 +11,8 @@ class Login extends Component {
 		userName: '',
 		confirmPassword: '',
 		bio: '',
+		facebook: '',
+		instagram: '',
 		rememberMe: false,
 		redirect: false,
 		redirectPath: ''
@@ -59,7 +61,7 @@ class Login extends Component {
 	handleLoginSubmit = event => {
 		event.preventDefault();
 		let sendEmail = this.state.email
-		axios.get('/api/main/' + sendEmail, {
+		axios.get('http://localhost:3001/api/main/' + sendEmail, {
 			email: this.state.email,
 			password: this.state.password
 		}).then(res => {
@@ -90,7 +92,7 @@ class Login extends Component {
 	handleRegisterSubmit = event => {
 		event.preventDefault();
 
-		axios.post('/api/profiles/main', {
+		axios.post('http://localhost:3001/api/profiles/main', {
 			userName: this.state.userName,
 			email: this.state.email,
 			password: this.state.password,
@@ -212,6 +214,15 @@ class Login extends Component {
 													<div className="form-group">
 														<input type="text" name="bio" id="bio" tabIndex="2" className="form-control" placeholder="Biography" value={this.state.bio} onChange={this.handleInputChange} />
 													</div>
+
+													<div className="form-group">
+														<input type="text" name="facebook" id="facebook" tabIndex="2" className="form-control" placeholder="Facebook Link" value={this.state.facebook} onChange={this.handleInputChange} />
+													</div>
+
+													<div className="form-group">
+														<input type="text" name="instagram" id="instagram" tabIndex="2" className="form-control" placeholder="Instagram Link" value={this.state.instagram} onChange={this.handleInputChange} />
+													</div>
+
 													<div className="form-group">
 														<label htmlFor="avatar">Profile picture:</label>
 														<img id="preview" alt="placeholder" src="http://via.placeholder.com/150x150" />

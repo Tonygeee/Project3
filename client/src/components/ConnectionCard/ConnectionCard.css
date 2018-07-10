@@ -70,3 +70,15 @@ li {
   margin-top: 18px;
 }
 
+#connectDiv{
+
+}
+
+#socialMedia{
+  height: 60px;
+  width: 60px;
+  float: left;
+  border-radius: 0% !important;
+
+}
+
