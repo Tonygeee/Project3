@@ -11,6 +11,8 @@ class Login extends Component {
 		userName: '',
 		confirmPassword: '',
 		bio: '',
+		facebook: '',
+		instagram: '',
 		rememberMe: false,
 		redirect: false,
 		redirectPath: ''
@@ -212,6 +214,15 @@ class Login extends Component {
 													<div className="form-group">
 														<input type="text" name="bio" id="bio" tabIndex="2" className="form-control" placeholder="Biography" value={this.state.bio} onChange={this.handleInputChange} />
 													</div>
+
+													<div className="form-group">
+														<input type="text" name="facebook" id="facebook" tabIndex="2" className="form-control" placeholder="Facebook Link" value={this.state.facebook} onChange={this.handleInputChange} />
+													</div>
+
+													<div className="form-group">
+														<input type="text" name="instagram" id="instagram" tabIndex="2" className="form-control" placeholder="Instagram Link" value={this.state.instagram} onChange={this.handleInputChange} />
+													</div>
+
 													<div className="form-group">
 														<label htmlFor="avatar">Profile picture:</label>
 														<img id="preview" alt="placeholder" src="http://via.placeholder.com/150x150" />
