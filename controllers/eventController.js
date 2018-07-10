@@ -9,6 +9,13 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findOne: function (req, res) {
+    console.log("reached this point!!!!");
+    db.Profile
+      .find({ title: req.params.title })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   findById: function (req, res) {
     db.Events
       .findById(req.params.id)

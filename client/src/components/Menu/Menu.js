@@ -31,11 +31,49 @@ class Menu extends React.Component {
             .catch(err => console.log(err));
     };
 
+    findFriends = event => {
+        event.preventDefault();
+        //check if event exists already
+        let i = event.target.index;
+        console.log(event.target.index);
+        API.checkForEvent(this.state.events[i].name.trim())
+            .then(((res) => {
+                if (!res.length) {
+                    console.log(event.target);
+                    let eventInfo = {
+                        eventName: this.state.events[i].name.trim(),
+                        eventId: this.state.events[i].id.trim(),
+                        url: this.state.events[i].url.trim(),
+                        image: this.state.events[i].images[0].url,
+                        startDateTime: this.state.events[i].dates.start.dateTime,
+                        venue: this.state.events[i]._embedded.venues[0].name,
+                        localDate: this.state.events[i].dates.start.locaDate,
+                        localTime: this.state.events[i].dates.start.localTime,
+                    }
+                    API.saveEvent(eventInfo)
+                        .then(res => console.log(res))
+                        .catch(err => console.log(err));
+                } else {
+                    console.log(res);
+                    // API.addEventToUser(res)
+                }
+            })
+            )
+
+
+
+        //add id to users event list
+
+        //add user id to event's user list?
+
+        //filter cards by event's mogodb id
+    }
+
     render() {
         return (
             < div className="panel panel-default" >
                 <div className="panel-heading">
-                    <h3 className="panel-title">Menu</h3>
+                    {/* <h3 className="panel-title">Menu</h3> */}
                     <h2 className="panel-title">
                         Zip Code: <input
                             type="text"
@@ -44,14 +82,14 @@ class Menu extends React.Component {
                             onChange={this.handleInputChange}
                         />
                     </h2>
-                    <h2 className="panel-title">
+                    {/* <h2 className="panel-title">
                         Search: <input
                             type="text"
                             name="searchTerm"
                             value={this.state.searchTerm}
                             onChange={this.handleInputChange}
                         />
-                    </h2>
+                    </h2> */}
                     <button
                         onClick={this.handleFormSubmit}
                         type="success"
@@ -64,14 +102,18 @@ class Menu extends React.Component {
                     ) :
                         (
                             <EventList>
-                                {this.state.events.map(event => {
+                                {this.state.events.map((event, index) => {
                                     console.log(event)
                                     return (
                                         <EventListItem
-                                            key={event.name}
+                                            key={index}
+                                            index={index}
                                             title={event.name}
                                             url={event.url}
                                             venue={event._embedded.venues[0].name}
+                                            eventDate={event.dates.start.localDate}
+                                            eventTime={event.dates.start.localTime}
+                                            onClick={this.findFriends}
                                         />
                                     );
                                 })}

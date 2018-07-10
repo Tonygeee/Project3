@@ -10,8 +10,9 @@ const eventController = require("../../controllers/eventController");
 //     .catch(err => res.status(422).json(err));
 // });
 
-router.route("/events")
-  .get(eventController.findAll)
+router.route("/")
+  .get(eventController.findOne)
+  .put(eventController.update)
   .post(eventController.create);
 
 // Matches with "/api/profile/:id"
