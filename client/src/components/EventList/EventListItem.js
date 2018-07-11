@@ -7,6 +7,6 @@ export const EventListItem = props => (
         <h4>{props.venue}</h4>
         <p>{props.eventDate}</p>
         <p>{props.eventTime}</p>
-        <button onClick={props.onClick} index={props.index}>Intrested</button>
+        <button onClick={props.onClick} data-index={props.index}>Intrested</button>
     </li>
 );

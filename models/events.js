@@ -12,6 +12,12 @@ const eventSchema = new Schema({
   venue: String,
   localDate: String,
   localTime: String,
+  profiles: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Profile"
+    }
+  ]
 });
 
 const Events = mongoose.model("Events", eventSchema);

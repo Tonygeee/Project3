@@ -3,10 +3,9 @@ const db = require("../models");
 // Defining methods for the profileController
 module.exports = {
   findOne: function (req, res) {
-    console.log("reached this point!!!!");
+    console.log(req.params.userName);
     db.Profile
-      .find({ email: req.params.email })
-      // .sort({ date: -1 })
+      .find({ userName: req.params.userName })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

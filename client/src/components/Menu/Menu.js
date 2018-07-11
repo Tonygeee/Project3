@@ -9,9 +9,10 @@ class Menu extends React.Component {
         this.state = {
             events: {},
             zipCode: "",
-            searchTerm: ""
+            searchTerm: "",
+            userName: localStorage.getItem("userName"),
+            eventID: ""
         };
-        console.log(this.state);
     }
 
     handleInputChange = event => {
@@ -34,12 +35,11 @@ class Menu extends React.Component {
     findFriends = event => {
         event.preventDefault();
         //check if event exists already
-        let i = event.target.index;
-        console.log(event.target.index);
+        let i = event.target.dataset.index;
+        console.log(this.state.events[i]);
         API.checkForEvent(this.state.events[i].name.trim())
-            .then(((res) => {
+            .then(async (res) => {
                 if (!res.length) {
-                    console.log(event.target);
                     let eventInfo = {
                         eventName: this.state.events[i].name.trim(),
                         eventId: this.state.events[i].id.trim(),
@@ -50,14 +50,25 @@ class Menu extends React.Component {
                         localDate: this.state.events[i].dates.start.locaDate,
                         localTime: this.state.events[i].dates.start.localTime,
                     }
-                    API.saveEvent(eventInfo)
+                    console.log(res.data[0]._id);
+                    const eventRes = await API.saveEvent(eventInfo);
+                    this.setState({ eventID: eventRes.data._id })
+
+                    console.log(this.state.eventID);
+                    console.log(this.state.userName);
+
+                    API.addEventToUser(this.state.eventID, this.state.userName)
+                        .then(res => console.log(res))
+                        .catch(err => console.log(err));
+
+                    API.addUserToEvent(this.state.userId, this.state.userName)
                         .then(res => console.log(res))
                         .catch(err => console.log(err));
                 } else {
                     console.log(res);
                     // API.addEventToUser(res)
                 }
-            })
+            }
             )
 
 

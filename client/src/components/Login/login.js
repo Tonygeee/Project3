@@ -60,13 +60,12 @@ class Login extends Component {
 
 	handleLoginSubmit = event => {
 		event.preventDefault();
-		let sendEmail = this.state.email
-		axios.get('/api/main/' + sendEmail, {
-			email: this.state.email,
+		let sendUser = this.state.userName
+		axios.get('/api/main/' + sendUser, {
+			userName: this.state.userName,
 			password: this.state.password
 		}).then(res => {
-			console.log(this.state.email);
-			localStorage.setItem("email", this.state.email);
+			localStorage.setItem("userName", res.data[0].userName);
 			this.setRedirect('loggedin')
 		})
 	}

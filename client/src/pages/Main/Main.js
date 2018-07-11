@@ -43,9 +43,9 @@ class MainPage extends Component {
       })
       .catch(err => console.log(err));
 
-    console.log(localStorage.getItem("email"));
+    console.log(localStorage.getItem("userName"));
 
-    Api.getProfile(localStorage.getItem("email"))
+    Api.getProfile(localStorage.getItem("userName"))
       .then(res => {
         console.log(res.data[0]);
         this.setState({

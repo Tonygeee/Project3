@@ -4,13 +4,13 @@ const profileControler = require("../../controllers/profileController");
 // Matches with "/api/main"
 router.route("/")
     .get(profileControler.findAll)
+    .put(profileControler.update)
     .post(profileControler.create);
 
 // Matches with "/api/main/:email"
 router
-    .route("/:email")
+    .route("/:userName")
     .get(profileControler.findOne)
-    .put(profileControler.update)
     .delete(profileControler.remove);
 
 module.exports = router;
