@@ -8,7 +8,7 @@ const ConnectionCard = props => {
     <div>
       <div className="card">
         <div className="img-container">
-          <img alt={props.userName} src={props.image} />
+          <img className="center-block" alt={props.userName} src={props.image} />
         </div>
         <div className="content">
           <ul>
