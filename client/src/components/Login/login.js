@@ -139,7 +139,7 @@ class Login extends Component {
 		return (
 			<div>
 				{/* colorBody where gradient background is */}
-				<div id="colorBody">
+				<div className="colorBody">
 					{/* all white logo */}
 					<img id="loginLogo" src="/images/logoAllWhite.png" alt="Buddy Up Logo" />
 					{/* container holds both forms */}
