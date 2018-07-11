@@ -52,20 +52,22 @@ class Menu extends React.Component {
                     }
                     console.log(res.data[0]._id);
                     const eventRes = await API.saveEvent(eventInfo);
+                    const userID = await API.getProfile(this.state.userName);
                     this.setState({ eventID: eventRes.data._id })
 
                     console.log(this.state.eventID);
-                    console.log(this.state.userName);
+                    console.log(userID.data[0]._id);
 
-                    API.addEventToUser(this.state.eventID, this.state.userName)
+                    API.addEventToUser(this.state.eventID, userID.data[0]._id)
                         .then(res => console.log(res))
                         .catch(err => console.log(err));
 
-                    API.addUserToEvent(this.state.userId, this.state.userName)
+                    API.addUserToEvent(userID.data[0]._id, this.state.eventID)
                         .then(res => console.log(res))
                         .catch(err => console.log(err));
+
                 } else {
-                    console.log(res);
+                    // console.log(res);
                     // API.addEventToUser(res)
                 }
             }
