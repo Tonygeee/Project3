@@ -36,10 +36,11 @@ class Menu extends React.Component {
         event.preventDefault();
         //check if event exists already
         let i = event.target.dataset.index;
-        console.log(this.state.events[i]);
+        console.log(this.state.events[i].name);
         API.checkForEvent(this.state.events[i].name.trim())
             .then(async (res) => {
                 if (!res.length) {
+                    console.log("no matching event found");
                     let eventInfo = {
                         eventName: this.state.events[i].name.trim(),
                         eventId: this.state.events[i].id.trim(),
@@ -52,20 +53,23 @@ class Menu extends React.Component {
                     }
                     console.log(res.data[0]._id);
                     const eventRes = await API.saveEvent(eventInfo);
+                    const userID = await API.getProfile(this.state.userName);
                     this.setState({ eventID: eventRes.data._id })
 
                     console.log(this.state.eventID);
-                    console.log(this.state.userName);
+                    console.log(userID.data[0]._id);
 
-                    API.addEventToUser(this.state.eventID, this.state.userName)
+                    API.addEventToUser(this.state.eventID, userID.data[0]._id)
                         .then(res => console.log(res))
                         .catch(err => console.log(err));
 
-                    API.addUserToEvent(this.state.userId, this.state.userName)
+                    API.addUserToEvent(userID.data[0]._id, this.state.eventID)
                         .then(res => console.log(res))
                         .catch(err => console.log(err));
+
                 } else {
-                    console.log(res);
+                    console.log("Matching event found");
+                    // console.log(res);
                     // API.addEventToUser(res)
                 }
             }

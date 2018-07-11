@@ -30,8 +30,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function (req, res) {
-    db.Profile
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+    console.log(req.body.params.userName);
+    db.Events
+      .findOneAndUpdate({ _id: req.body.params.userName }, { events: req.body.params.id })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

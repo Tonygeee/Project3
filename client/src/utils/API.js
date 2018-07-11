@@ -26,16 +26,16 @@ export default {
   },
   checkForEvent: function (title) {
     console.log(title);
-    return axios.get("/api/events", title);
+    return axios.get("/api/events", { params: { title: title } });
   },
-  addEventToUser: function (id, body) {
+  addEventToUser: function (id, userName) {
     console.log(id);
-    console.log(body);
-    return axios.put("/api/events", id);
+    console.log(userName);
+    return axios.put("/api/events", { params: { id: id, userName: userName } });
   },
-  addUserToEvent: function (id, body) {
-    console.log(body);
-    return axios.put("api/main", id);
+  addUserToEvent: function (userName, id) {
+    console.log(id);
+    return axios.put("/api/main", { params: { id: id, userName: userName } });
   }
 }
 
