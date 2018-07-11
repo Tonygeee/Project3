@@ -10,9 +10,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findOne: function (req, res) {
-    console.log("reached this point!!!!");
+    console.log(req.query.title);
     db.Profile
-      .find({ title: req.params.title })
+      .find({ eventTitle: req.params.title })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

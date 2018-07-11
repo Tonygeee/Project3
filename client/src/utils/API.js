@@ -26,7 +26,7 @@ export default {
   },
   checkForEvent: function (title) {
     console.log(title);
-    return axios.get("/api/events", title);
+    return axios.get("/api/events", { params: { title: title } });
   },
   addEventToUser: function (id, userName) {
     console.log(id);

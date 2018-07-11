@@ -36,10 +36,11 @@ class Menu extends React.Component {
         event.preventDefault();
         //check if event exists already
         let i = event.target.dataset.index;
-        console.log(this.state.events[i]);
+        console.log(this.state.events[i].name);
         API.checkForEvent(this.state.events[i].name.trim())
             .then(async (res) => {
                 if (!res.length) {
+                    console.log("no matching event found");
                     let eventInfo = {
                         eventName: this.state.events[i].name.trim(),
                         eventId: this.state.events[i].id.trim(),
@@ -67,6 +68,7 @@ class Menu extends React.Component {
                         .catch(err => console.log(err));
 
                 } else {
+                    console.log("Matching event found");
                     // console.log(res);
                     // API.addEventToUser(res)
                 }
