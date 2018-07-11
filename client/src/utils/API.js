@@ -3,22 +3,34 @@ import axios from "axios";
 export default {
   // Gets all profiles
   getProfiles: function () {
-    return axios.get("/api/main");
+    return axios.get("/api/profiles/main");
   },
   // Gets the profile with the given id
   getProfile: function (email) {
     return axios.get("/api/main/" + email);
   },
-    // Deletes the profile with the given id
-    deleteProfile: function (id) {
-      return axios.delete("/api/main/" + id);
-    },
-    // Saves a profile to the database
-    saveProfile: function (profileData) {
-      return axios.post("/api/main", profileData);
-    },
-    getEvents: function (query) {
-      return axios.get("api/search", { params: { q: query } });
-    }
+  // Deletes the profile with the given id
+  deleteProfile: function (id) {
+    return axios.delete("/api/main/" + id);
+  },
+  // Saves a profile to the database
+  saveProfile: function (profileData) {
+    return axios.post("/api/main/", profileData);
+  },
+  saveEvent: function (eventData) {
+    return axios.post("/api/events", eventData);
+  },
+  getEvents: function (query) {
+    console.log(query);
+    return axios.get("https://app.ticketmaster.com/discovery/v2/events.json?postalCode=" + query + "&radius=100&unit=miles&apikey=NyUgIOdhF4S6fXn0BFIY7Afii13kPKnc");
+  },
+  checkForEvent: function (title) {
+    console.log(title);
+    return axios.get("/api/events", title);
+  },
+  addEventToUser: function (id, body) {
+    console.log(body);
+    return axios.put("/api/events", id);
   }
+}
 

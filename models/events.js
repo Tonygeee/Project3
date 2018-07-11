@@ -11,7 +11,7 @@ const eventSchema = new Schema({
   startDateTime: String,
   venue: String,
   localDate: String,
-  dateTime: String,
+  localTime: String,
 });
 
 const Events = mongoose.model("Events", eventSchema);

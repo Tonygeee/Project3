@@ -1,6 +1,12 @@
 import React from 'react';
 
-const EventListItem = props => {
-    <h3>{props.name}</h3>
-}
-export default EventListItem;
+export const EventListItem = props => (
+
+    <li>
+        <a href={props.url}><h3>{props.title}</h3></a>
+        <h4>{props.venue}</h4>
+        <p>{props.eventDate}</p>
+        <p>{props.eventTime}</p>
+        <button onClick={props.onClick} index={props.index}>Intrested</button>
+    </li>
+);

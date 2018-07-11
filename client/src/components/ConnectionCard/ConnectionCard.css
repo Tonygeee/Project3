@@ -1,15 +1,9 @@
-/*.cCard {
-    display: flex;
-    flex-flow: column;
-    border: 1px solid black;
-    border-radius: 1rem;
-    padding: 2rem;
-}*/
+
 
 .card {
   background: white;
   border-radius: 2px;
-  height: 475px;
+  height: 355px;
   display: block;
   overflow: visible;
   margin: 1rem;
@@ -18,6 +12,12 @@
   text-align: left;
   overflow-x: scroll;
 }
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ }
 
 img {
     margin-top: 10px;
@@ -68,5 +68,17 @@ li {
 
 .card > .content > ul > li {
   margin-top: 18px;
+}
+
+#connectDiv{
+
+}
+
+#socialMedia{
+  height: 60px;
+  width: 60px;
+  float: left;
+  border-radius: 0% !important;
+
 }
 

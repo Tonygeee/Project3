@@ -224,7 +224,9 @@ class Login extends Component {
 													</div>
 
 													<div className="form-group">
+
 														<label htmlFor="avatar">Profile picture:  </label>
+
 														<img id="preview" alt="placeholder" src="http://via.placeholder.com/150x150" />
 														<input onChange={this.previewFile} type="file"
 															id="avatar" name="image"

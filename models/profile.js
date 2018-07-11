@@ -9,7 +9,13 @@ const profileSchema = new Schema({
   facebookURL: String,
   instagramURL: String,
   bio: String,
-  image: String
+  image: String,
+  events: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Events"
+    }
+  ]
 });
 
 const Profile = mongoose.model("Profile", profileSchema);
