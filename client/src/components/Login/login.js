@@ -11,6 +11,8 @@ class Login extends Component {
 		userName: '',
 		confirmPassword: '',
 		bio: '',
+		facebook: '',
+		instagram: '',
 		rememberMe: false,
 		redirect: false,
 		redirectPath: ''
@@ -59,11 +61,12 @@ class Login extends Component {
 	handleLoginSubmit = event => {
 		event.preventDefault();
 		let sendEmail = this.state.email
-		axios.get('http://localhost:3001/api/main/' + sendEmail, {
+		axios.get('/api/main/' + sendEmail, {
 			email: this.state.email,
 			password: this.state.password
 		}).then(res => {
 			console.log(this.state.email);
+			localStorage.setItem("email", this.state.email);
 			this.setRedirect('loggedin')
 		})
 	}
@@ -136,7 +139,7 @@ class Login extends Component {
 		return (
 			<div>
 				{/* colorBody where gradient background is */}
-				<div id="colorBody">
+				<div className="colorBody">
 					{/* all white logo */}
 					<img id="loginLogo" src="/images/logoAllWhite.png" alt="Buddy Up Logo" />
 					{/* container holds both forms */}
@@ -211,9 +214,18 @@ class Login extends Component {
 													<div className="form-group">
 														<input type="text" name="bio" id="bio" tabIndex="2" className="form-control" placeholder="Biography" value={this.state.bio} onChange={this.handleInputChange} />
 													</div>
+
 													<div className="form-group">
-														<label for="avatar">Profile picture:</label>
-														<img id="preview" src="http://via.placeholder.com/150x150" />
+														<input type="text" name="facebook" id="facebook" tabIndex="2" className="form-control" placeholder="Facebook Link" value={this.state.facebook} onChange={this.handleInputChange} />
+													</div>
+
+													<div className="form-group">
+														<input type="text" name="instagram" id="instagram" tabIndex="2" className="form-control" placeholder="Instagram Link" value={this.state.instagram} onChange={this.handleInputChange} />
+													</div>
+
+													<div className="form-group">
+														<label htmlFor="avatar">Profile picture:  </label>
+														<img id="preview" alt="placeholder" src="http://via.placeholder.com/150x150" />
 														<input onChange={this.previewFile} type="file"
 															id="avatar" name="image"
 															accept="image/png, image/jpeg" />
