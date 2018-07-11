@@ -6,8 +6,8 @@ export default {
     return axios.get("/api/profiles/main");
   },
   // Gets the profile with the given id
-  getProfile: function (email) {
-    return axios.get("/api/main/" + email);
+  getProfile: function (userName) {
+    return axios.get("/api/main/" + userName);
   },
   // Deletes the profile with the given id
   deleteProfile: function (id) {
@@ -29,8 +29,13 @@ export default {
     return axios.get("/api/events", title);
   },
   addEventToUser: function (id, body) {
+    console.log(id);
     console.log(body);
     return axios.put("/api/events", id);
+  },
+  addUserToEvent: function (id, body) {
+    console.log(body);
+    return axios.put("api/main", id);
   }
 }
 
