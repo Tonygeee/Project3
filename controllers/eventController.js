@@ -10,9 +10,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findOne: function (req, res) {
-    console.log(req.query.title);
-    db.Profile
-      .find({ eventTitle: req.params.title })
+    console.log(req.query.eventId);
+    db.Events
+      .find({ eventId: req.query.eventId })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -23,16 +23,17 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function (req, res) {
-    console.log(req.body)
+    // console.log(req.body)
     db.Events
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function (req, res) {
-    console.log(req.body.params.userName);
+    // console.log(req.body.params.userId);
+    // console.log(req.body.params.eventId);
     db.Events
-      .findOneAndUpdate({ _id: req.body.params.id }, { profiles: req.body.params.userName })
+      .findOneAndUpdate({ _id: req.body.params.eventId }, { $push: { profiles: req.body.params.userId } }, { new: true })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

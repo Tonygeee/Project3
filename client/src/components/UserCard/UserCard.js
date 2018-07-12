@@ -9,7 +9,7 @@ const UserCard = props => {
             <div className="profilePic">
                 <img alt={props.userName} src={props.image} />
             </div>
-            <h3 className="panel-top">{props.username}</h3>
+            <h3 className="panel-top">{props.userName}</h3>
             <div className="panel-body">
                 <p>{props.bio}</p>
                 <button className="btn-card btn btn-info">Events</button>

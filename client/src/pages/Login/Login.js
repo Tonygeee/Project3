@@ -2,7 +2,6 @@ import React from "react";
 // import Header from '../../components/Header';
 import Login from '../../components/Login';
 // import LeoLogin from '../../components/Login/LeoLogin';
-import API from '../../utils/API';
 
 class LoginPage extends React.Component {
     state = {

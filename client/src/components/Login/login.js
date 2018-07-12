@@ -60,18 +60,21 @@ class Login extends Component {
 
 	handleLoginSubmit = event => {
 		event.preventDefault();
+		console.log(localStorage.getItem("userName"));
+		console.log(this.state)
 		let sendUser = this.state.userName
 		axios.get('/api/main/' + sendUser, {
 			userName: this.state.userName,
 			password: this.state.password
 		}).then(res => {
+			console.log(res.data[0].userName);
 			localStorage.setItem("userName", res.data[0].userName);
 			this.setRedirect('loggedin')
 		})
 	}
 
 	validateLoginForm = () => {
-		return this.state.email.length > 0 && this.state.password.length > 0;
+		return this.state.userName.length > 0 && this.state.password.length > 0;
 	}
 
 	validateRegisterForm = () => {
@@ -165,7 +168,7 @@ class Login extends Component {
 												{/* login form starts here */}
 												<form id="login-form" style={this.getDisplayStyle('login')} onSubmit={this.handleLoginSubmit}>
 													<div className="form-group">
-														<input type="text" name="email" id="username1" tabIndex="1" className="form-control" placeholder="Username" value={this.state.email} autoComplete="new-username" onChange={this.handleInputChange} />
+														<input type="text" name="userName" id="username1" tabIndex="1" className="form-control" placeholder="Username" value={this.state.userName} autoComplete="new-username" onChange={this.handleInputChange} />
 													</div>
 													<div className="form-group">
 														<input autoComplete="new-password" type="password" name="password" id="password1" tabIndex="2" className="form-control" placeholder="Password" value={this.state.password} onChange={this.handleInputChange} />
