@@ -8,6 +8,10 @@
 
 }
 
+.signOutBtn{
+    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+}
+
 .navbar-brand {
     padding: 0px;
 }
