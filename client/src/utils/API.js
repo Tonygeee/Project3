@@ -24,18 +24,19 @@ export default {
     console.log(query);
     return axios.get("https://app.ticketmaster.com/discovery/v2/events.json?postalCode=" + query + "&radius=100&unit=miles&apikey=NyUgIOdhF4S6fXn0BFIY7Afii13kPKnc");
   },
-  checkForEvent: function (title) {
-    console.log(title);
-    return axios.get("/api/events", { params: { title: title } });
+  checkForEvent: function (eventId) {
+    console.log(eventId);
+    return axios.get("/api/events", { params: { eventId: eventId } });
   },
-  addEventToUser: function (id, userName) {
-    console.log(id);
-    console.log(userName);
-    return axios.put("/api/events", { params: { id: id, userName: userName } });
+  addEventToUser: function (eventId, userId) {
+    console.log(eventId);
+    console.log(userId);
+    return axios.put("/api/events", { params: { eventId: eventId, userId: userId } });
   },
-  addUserToEvent: function (userName, id) {
-    console.log(id);
-    return axios.put("/api/main", { params: { id: id, userName: userName } });
+  addUserToEvent: function (userId, eventId) {
+    console.log(userId);
+    console.log(eventId);
+    return axios.put("/api/main", { params: { userId: userId, eventId: eventId } });
   }
 }
 

@@ -16,10 +16,9 @@ router.route("/")
   .post(eventController.create);
 
 // Matches with "/api/profile/:id"
-// router
-//   .route("/:id")
-//   .get(profileController.findById)
-//   .put(profileController.update)
-//   .delete(profileController.remove);
+// router.route("/:id")
+//   .get(eventController.findOne)
+//   .put(eventController.update)
+//   .delete(eventController.remove);
 
 module.exports = router;
