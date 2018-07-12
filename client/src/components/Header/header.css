@@ -8,9 +8,6 @@
 
 }
 
-.signOutBtn{
-    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-}
 
 .navbar-brand {
     padding: 0px;
@@ -22,9 +19,14 @@
     border-bottom: 6px solid #d62a81;
 }
 
-#searching {
+#signOutDiv {
     float: right !important;
     padding-top: 30px;
+}
+
+#signOutBtn{
+    color: grey;
+    /* text: white; */
 }
 
 /* .item1 {
