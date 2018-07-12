@@ -39,6 +39,9 @@ li {
   border-color: #F5865c;
   color: white !important;
   margin-bottom: 25px;
+  margin-top: 15px;
+
+  
 }
 
 .panel-title2 {
@@ -75,10 +78,11 @@ li {
 }
 
 #socialMedia{
-  height: 60px;
-  width: 60px;
+  height: 40px;
+  width: 40px;
   float: left;
   border-radius: 0% !important;
+  margin-right: 10px;
 
 }
 

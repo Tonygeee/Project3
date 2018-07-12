@@ -1,0 +1,17 @@
+.events{
+    border: solid yellow;
+    height: 400px;
+    overflow-x: scroll;
+
+}
+
+.panel {
+    max-height: 600px;
+    overflow-x: scroll;
+    padding-left: 10px;
+
+}
+
+.message-input{
+    height: 60px;
+}
