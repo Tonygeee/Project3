@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Chatkit from '@pusher/chatkit';
+import { ChatManager, TokenProvider } from '@pusher/chatkit';
 import Header from '../../components/Header';
 import Sidebar from '../../components/Sidebar';
 import UserCard from '../../components/UserCard';
@@ -15,9 +15,7 @@ import API from '../../utils/API';
 
 const instanceLocator = "v1:us1:9444a659-fe48-4c3c-b739-9445db574fcd"
 const testToken = "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/9444a659-fe48-4c3c-b739-9445db574fcd/token"
-const username = "test123"
-const roomId = 10348859
-
+console.log(typeof testToken);
 class MainPage extends Component {
 
   constructor() {
@@ -29,10 +27,11 @@ class MainPage extends Component {
       eventId: "",
       events: {},
       zipCode: "",
-      searchTerm: ""
+      searchTerm: "",
+      // roomId: 10348859
     }
-    console.log(this.state);
-    this.sendMessage = this.sendMessage.bind(this)
+    // console.log(this.state);
+    // this.sendMessage = this.sendMessage.bind(this)
   }
 
   componentDidMount() {
@@ -61,40 +60,52 @@ class MainPage extends Component {
       })
       .catch(err => console.log(err));
 
-    const chatManager = new Chatkit.ChatManager({
-      instanceLocator: instanceLocator,
-      userId: username,
-      tokenProvider: new Chatkit.TokenProvider({
-        url: testToken
-      })
-    })
-
-    chatManager.connect()
-      .then(currentUser => {
-        this.currentUser = currentUser
-        this.currentUser.subscribeToRoom({
-          roomId: roomId,
-          hooks: {
-            onNewMessage: message => {
-
-              this.setState({
-                messages: [...this.state.messages, message]
-              })
-            }
-          }
-        })
-      })
   }
 
+  // sendMessage(text) {
+  //   this.currentUser.sendMessage({
+  //     text,
+  //     roomId: this.state.roomId
+  //   })
+  // }
 
+  // createChat = event => {
+  //   event.preventDefault();
+  //   const chatManager = new ChatManager({
+  //     instanceLocator: instanceLocator,
+  //     userId: localStorage.getItem("userName"),
+  //     tokenProvider: new TokenProvider({ url: testToken })
+  //   })
 
-  sendMessage(text) {
-    this.currentUser.sendMessage({
-      text,
-      roomId: roomId
-    })
-  }
+  //   chatManager.connect()
+  //     .then(currentUser => {
+  //       this.currentUser = currentUser
+  //       currentUser.createRoom({
+  //         name: 'general',
+  //         private: true,
+  //         addUserIds: ['craig', 'kate']
+  //       }).then(room => {
+  //         console.log(`Created room called ${room.name}`)
+  //       })
+  //         .catch(err => {
+  //           console.log(`Error creating room ${err}`)
+  //         })
 
+  //       this.currentUser.subscribeToRoom({
+  //         roomId: this.state.roomId,
+  //         hooks: {
+  //           onNewMessage: message => {
+
+  //             this.setState({
+  //               messages: [...this.state.messages, message]
+  //             })
+  //           }
+  //         }
+  //       })
+  //     })
+  // }
+
+  //handlers
   handleInputChange = event => {
     // Destructure the name and value properties off of event.target
     // Update the appropriate state
@@ -196,10 +207,18 @@ class MainPage extends Component {
       .catch(err => console.log(err))
   }
 
+  handleLogOut = event => {
+    event.preventDefault();
+    console.log("logged out");
+    localStorage.removeItem("userName");
+  }
+
   render() {
     return (
       <div className="grid-container">
-        <Header className="item1" />
+        <Header className="item1"
+          handleClick={this.handleLogOut}
+        />
         <Sidebar className="item2">
           <UserCard
             image={this.state.user.image}
@@ -264,16 +283,17 @@ class MainPage extends Component {
           </ChatContainer>
         </Sidebar>
         <Main className="item3">
-          {this.state.friends.map(friend =>
+          {this.state.friends.map((friend, index) =>
             <ConnectionCard
+              key={index}
               id={friend.id}
-              key={friend.id}
               userName={friend.userName}
               image={friend.image}
               facebookURL={friend.facebookURL}
               instagramURL={friend.instagramURL}
               bio={friend.bio}
               events={friend.events}
+              handleConnect={this.createChat}
             />
           )
           }

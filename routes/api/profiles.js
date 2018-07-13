@@ -1,16 +1,13 @@
 const router = require("express").Router();
 const profileController = require("../../controllers/profileController");
 
-// Matches with "/api/profiles/main"
-router.route("/main")
-  .get(profileController.findAll)
-  .post(profileController.create);
+// app.post("/authenticate", (req, res) => {
+//     const authData = chatkit.authenticate({ userId: req.query.user_id });
+//     res.status(authData.status).send(authData.body);
+// });
 
-// Matches with "/api/profile/:id"
-// router
-//   .route("/:id")
-//   .get(profileController.findById)
-//   .put(profileController.update)
-//   .delete(profileController.remove);
+router.route("/main")
+    .get(profileController.findAll)
+    .post(profileController.create);
 
 module.exports = router;

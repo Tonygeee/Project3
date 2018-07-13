@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.css';
 
-function Header() {
+const Header = (props) => {
     return (
         <div className="item1">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -9,8 +9,8 @@ function Header() {
                 <div id="searching">
                     <form className="form-inline my-2 my-lg-0">
                         <div id="signOutDiv">
-                            <button id="signOutBtn" onClick={localStorage.clear()}
-                                type="button" class="btn btn-secondary">Sign Out</button>
+                            <button id="signOutBtn" onClick={props.handleClick}
+                                type="button" className="btn btn-secondary">Sign Out</button>
 
                         </div>
                     </form>

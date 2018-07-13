@@ -60,8 +60,7 @@ class Login extends Component {
 
 	handleLoginSubmit = event => {
 		event.preventDefault();
-		console.log(localStorage.getItem("userName"));
-		console.log(this.state)
+		console.log(this.state.userName)
 		let sendUser = this.state.userName
 		axios.get('/api/main/' + sendUser, {
 			userName: this.state.userName,
@@ -69,6 +68,7 @@ class Login extends Component {
 		}).then(res => {
 			console.log(res.data[0].userName);
 			localStorage.setItem("userName", res.data[0].userName);
+			console.log(localStorage.getItem("userName"))
 			this.setRedirect('loggedin')
 		})
 	}
@@ -94,7 +94,7 @@ class Login extends Component {
 	handleRegisterSubmit = event => {
 		event.preventDefault();
 
-		axios.post('http://localhost:3001/api/profiles/main', {
+		axios.post('api/profiles/main', {
 			userName: this.state.userName,
 			email: this.state.email,
 			password: this.state.password,
@@ -102,9 +102,15 @@ class Login extends Component {
 			image: this.choseImage ? this.image : this.defaultImage
 
 		}).then(res => {
-			console.log(res.data);
-			this.toggleStateOnSelection(null, 'login')
+			console.log(res.data.userName);
+			// const chatUser = res.data.userName;
+			// try {
+			// 	axios.post('../../../../users', chatUser);
+			// } catch ({ message }) {
+			// 	throw new Error(`Failed to create a user, ${message}`);
+			// }
 		})
+		this.toggleStateOnSelection(null, 'login')
 	}
 
 	setRedirect = (path) => {

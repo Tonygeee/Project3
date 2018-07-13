@@ -1,10 +1,7 @@
-
-
 .card {
   background: white;
   border-radius: 2px;
-  height: 355px;
-  display: block;
+  height: 370px;
   overflow: visible;
   margin: 1rem;
   position: relative;
@@ -14,25 +11,25 @@
 }
 
 .center-block {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
- }
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 img {
-    margin-top: 10px;
-    vertical-align: middle;
-    border-radius: 50%;
-    width: 154px;
-    height: 154px;
+  margin-top: 10px;
+  vertical-align: middle;
+  border-radius: 50%;
+  width: 154px;
+  height: 154px;
 }
 
 li {
-    margin-top: 20px;
-    word-spacing: 0.5px;
-    letter-spacing: 0.4px;
-    line-height: 1.3em;
-}    
+  margin-top: 20px;
+  word-spacing: 0.5px;
+  letter-spacing: 0.4px;
+  line-height: 1.3em;
+}
 
 .btn-card {
   background-color: #F5865c !important;
@@ -40,49 +37,41 @@ li {
   color: white !important;
   margin-bottom: 25px;
   margin-top: 15px;
-
-  
 }
 
 .panel-title2 {
   color: #F5865c !important;
-
 }
 
-.card > .img-container {
+.card>.img-container {
   max-width: 255px;
-/*  height: 30%;
+  /*  height: 30%;
   overflow: visible;*/
   text-align: center;
 }
-.card > .img-container > img {
+
+.card>.img-container>img {
   width: 60%
 }
 
-.card > .content {
+.card>.content {
   padding-left: 1rem;
   padding-right: 1rem;
   font-size: 15px;
 }
 
-.card > .content > ul {
+.card>.content>ul {
   list-style-type: none;
 }
 
-.card > .content > ul > li {
+.card>.content>ul>li {
   margin-top: 18px;
 }
 
-#connectDiv{
-
-}
-
-#socialMedia{
+#socialMedia {
   height: 40px;
   width: 40px;
   float: left;
   border-radius: 0% !important;
   margin-right: 10px;
-
 }
-

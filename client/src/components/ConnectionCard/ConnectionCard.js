@@ -27,7 +27,7 @@ const ConnectionCard = props => {
                 </a>
               </li>}
               <li>
-                <button type="button" className="btn btn-info btn-card text-center">Connect</button>
+                <button type="button" className="btn btn-info btn-card text-center" onClick={props.handleConnect}>Connect</button>
               </li>
             </div>
             <li>
