@@ -16,7 +16,8 @@
   margin-right: auto;
 }
 
-img {
+.item3 img,
+.item2 img {
   margin-top: 10px;
   vertical-align: middle;
   border-radius: 50%;

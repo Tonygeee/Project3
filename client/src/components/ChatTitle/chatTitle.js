@@ -3,7 +3,7 @@ import './chatTitle.css';
 
 const ChatTitle = () => {
     return (
-        <h3 id="chatTitle">Participant Names</h3>
+        <h3 id="chatTitle">Non-funcionig chat</h3>
     )
 }
 

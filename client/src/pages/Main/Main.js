@@ -28,82 +28,11 @@ class MainPage extends Component {
       events: {},
       zipCode: "",
       searchTerm: "",
-      // roomId: 10348859
+      roomId: 10348859
     }
     // console.log(this.state);
     // this.sendMessage = this.sendMessage.bind(this)
   }
-
-  componentDidMount() {
-    API.getProfiles()
-      .then(res => {
-        console.log(res.data[1].events);
-        this.setState({
-          friends: res.data
-        })
-      })
-      .catch(err => console.log(err));
-
-    console.log(localStorage.getItem("userName"));
-
-    API.getProfile(localStorage.getItem("userName"))
-      .then(res => {
-        console.log(res.data[0]);
-        this.setState({
-          user: {
-            image: res.data[0].image,
-            userName: res.data[0].userName,
-            bio: res.data[0].bio
-          }
-        })
-        console.log(this.state.user.userName);
-      })
-      .catch(err => console.log(err));
-
-  }
-
-  // sendMessage(text) {
-  //   this.currentUser.sendMessage({
-  //     text,
-  //     roomId: this.state.roomId
-  //   })
-  // }
-
-  // createChat = event => {
-  //   event.preventDefault();
-  //   const chatManager = new ChatManager({
-  //     instanceLocator: instanceLocator,
-  //     userId: localStorage.getItem("userName"),
-  //     tokenProvider: new TokenProvider({ url: testToken })
-  //   })
-
-  //   chatManager.connect()
-  //     .then(currentUser => {
-  //       this.currentUser = currentUser
-  //       currentUser.createRoom({
-  //         name: 'general',
-  //         private: true,
-  //         addUserIds: ['craig', 'kate']
-  //       }).then(room => {
-  //         console.log(`Created room called ${room.name}`)
-  //       })
-  //         .catch(err => {
-  //           console.log(`Error creating room ${err}`)
-  //         })
-
-  //       this.currentUser.subscribeToRoom({
-  //         roomId: this.state.roomId,
-  //         hooks: {
-  //           onNewMessage: message => {
-
-  //             this.setState({
-  //               messages: [...this.state.messages, message]
-  //             })
-  //           }
-  //         }
-  //       })
-  //     })
-  // }
 
   //handlers
   handleInputChange = event => {
@@ -122,7 +51,6 @@ class MainPage extends Component {
       .then(res => this.setState({ events: res.data._embedded.events }))
       .catch(err => console.log(err));
   };
-
 
   findFriends = event => {
     event.preventDefault();
