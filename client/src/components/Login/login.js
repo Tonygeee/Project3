@@ -16,7 +16,6 @@ class Login extends Component {
 		rememberMe: false,
 		redirect: false,
 		redirectPath: ''
-
 	}
 
 	defaultImage = 'https://www.ienglishstatus.com/wp-content/uploads/2018/04/Sad-Profile-Pic-for-Whatsapp.png';
@@ -30,7 +29,6 @@ class Login extends Component {
 			email: '',
 			userName: '',
 			confirmPassword: '',
-			bio: '',
 			rememberMe: false
 		})
 	}
@@ -61,8 +59,7 @@ class Login extends Component {
 	handleLoginSubmit = event => {
 		event.preventDefault();
 		console.log(this.state.userName)
-		let sendUser = this.state.userName
-		axios.get('/api/main/' + sendUser, {
+		axios.post('/api/auth/login', {
 			userName: this.state.userName,
 			password: this.state.password
 		}).then(res => {

@@ -1,6 +1,6 @@
 const path = require("path");
 const router = require("express").Router();
-const multer = require("multer");
+// const multer = require("multer");
 // var upload = multer({ dest: '../../uploads' })
 
 

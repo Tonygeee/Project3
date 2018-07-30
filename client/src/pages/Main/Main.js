@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ChatManager, TokenProvider } from '@pusher/chatkit';
+// import { ChatManager, TokenProvider } from '@pusher/chatkit';
 import Header from '../../components/Header';
 import Sidebar from '../../components/Sidebar';
 import UserCard from '../../components/UserCard';
@@ -13,9 +13,9 @@ import MessageForm from '../../components/MessageForm';
 import { EventList, EventListItem } from "../../components/EventList";
 import API from '../../utils/API';
 
-const instanceLocator = "v1:us1:9444a659-fe48-4c3c-b739-9445db574fcd"
-const testToken = "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/9444a659-fe48-4c3c-b739-9445db574fcd/token"
-console.log(typeof testToken);
+// const instanceLocator = "v1:us1:9444a659-fe48-4c3c-b739-9445db574fcd"
+// const testToken = "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/9444a659-fe48-4c3c-b739-9445db574fcd/token"
+// console.log(typeof testToken);
 class MainPage extends Component {
 
   constructor() {
